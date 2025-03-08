@@ -1309,26 +1309,8 @@ body {
     width: 500px;
     max-width: 90%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.modal-header h3 {
-    margin: 0;
-    color: #1d4e89;
-}
-
-.close-modal {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #666;
+    position: relative; /* Ensure it stays centered */
+    z-index: 1001; /* Ensure it stays above other content */
 }
 
 /* Form styles */

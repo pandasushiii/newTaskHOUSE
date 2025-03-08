@@ -409,32 +409,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add Attendance Modal functionality
     const attendanceBtn = document.querySelector('.clock-btn');
-    const attendanceCard = document.getElementById('attendance');
-    const attendanceCloseBtn = attendanceCard.querySelector('.close-modal');
-    const clockInBtn = attendanceCard.querySelector('.clock-in-btn');
-    const breakTimeBtn = attendanceCard.querySelector('.break-time-btn');
-    const clockOutBtn = attendanceCard.querySelector('.clock-out-btn');
+    const attendanceModal = document.getElementById('attendance');
+    const attendanceCloseBtn = attendanceModal.querySelector('.close-modal');
+    const clockInBtn = attendanceModal.querySelector('.clock-in-btn');
+    const breakTimeBtn = attendanceModal.querySelector('.break-time-btn');
+    const clockOutBtn = attendanceModal.querySelector('.clock-out-btn');
     const userStatus = document.getElementById('userStatus');
     const statusIndicator = document.getElementById('statusIndicator');
     const logsTableBody = document.getElementById('logsTableBody');
     const scheduleTableBody = document.getElementById('scheduleTableBody');
 
-    // Open attendance card
+    // Open modal
     attendanceBtn.addEventListener('click', () => {
-        attendanceCard.style.display = 'block';
+        attendanceModal.classList.add('show');
     });
 
-    // Close attendance card functions
-    function closeAttendanceCard() {
-        attendanceCard.style.display = 'none';
+    // Close modal functions
+    function closeAttendanceModal() {
+        attendanceModal.classList.remove('show');
     }
 
-    attendanceCloseBtn.addEventListener('click', closeAttendanceCard);
+    attendanceCloseBtn.addEventListener('click', closeAttendanceModal);
 
     // Close on outside click
-    attendanceCard.addEventListener('click', (e) => {
-        if (e.target === attendanceCard) {
-            closeAttendanceCard();
+    attendanceModal.addEventListener('click', (e) => {
+        if (e.target === attendanceModal) {
+            closeAttendanceModal();
         }
     });
 
@@ -454,7 +454,7 @@ document.addEventListener("DOMContentLoaded", function () {
         userStatus.textContent = 'Active';
         statusIndicator.style.backgroundColor = 'green';
         addLogEntry('Clock In');
-        closeAttendanceCard();
+        closeAttendanceModal();
     });
 
     breakTimeBtn.addEventListener('click', () => {
@@ -462,7 +462,7 @@ document.addEventListener("DOMContentLoaded", function () {
         userStatus.textContent = 'Break Time';
         statusIndicator.style.backgroundColor = 'red';
         addLogEntry('Break Time');
-        closeAttendanceCard();
+        closeAttendanceModal();
     });
 
     clockOutBtn.addEventListener('click', () => {
@@ -470,7 +470,7 @@ document.addEventListener("DOMContentLoaded", function () {
         userStatus.textContent = 'Inactive';
         statusIndicator.style.backgroundColor = 'red';
         addLogEntry('Clock Out');
-        closeAttendanceCard();
+        closeAttendanceModal();
     });
 
     // Function to add schedule entry
