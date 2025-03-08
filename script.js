@@ -421,6 +421,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const userStatus = document.getElementById('userStatus'); // Add this line
     const statusIndicator = document.getElementById('statusIndicator');
     const logsTableBody = document.getElementById('logsTableBody');
+    const scheduleStart = document.getElementById('scheduleStart');
+    const scheduleEnd = document.getElementById('scheduleEnd');
+    const specificDate = document.getElementById('specificDate');
 
     // Open modal
     attendanceBtn.addEventListener('click', () => {

@@ -1817,3 +1817,30 @@ body {
     background: #32a852;
     transition: width 0.3s ease;
 }
+
+/* Schedule range and specific date fields */
+.attendance-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.attendance-form .form-group input[type="date"] {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.attendance-form .form-group input[type="date"]:focus {
+    border-color: #2a7a8c;
+    outline: none;
+}
+
+.attendance-form .form-group input[type="date"]:hover {
+    border-color: #2a7a8c;
+}
