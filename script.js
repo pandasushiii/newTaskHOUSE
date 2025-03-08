@@ -419,6 +419,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const clockOutBtn = attendanceModal.querySelector('.clock-out-btn');
     const attendanceForm = attendanceModal.querySelector('.attendance-form');
     const userStatus = document.getElementById('userStatus'); // Add this line
+    const statusIndicator = document.getElementById('statusIndicator');
 
     // Open modal
     attendanceBtn.addEventListener('click', () => {
@@ -445,18 +446,21 @@ document.addEventListener("DOMContentLoaded", function () {
     clockInBtn.addEventListener('click', () => {
         console.log('Clocking in...');
         userStatus.textContent = 'Active'; // Update status
+        statusIndicator.style.backgroundColor = 'green';
         closeAttendanceModal();
     });
 
     breakTimeBtn.addEventListener('click', () => {
         console.log('Taking a break...');
         userStatus.textContent = 'Break Time'; // Update status
+        statusIndicator.style.backgroundColor = 'red';
         closeAttendanceModal();
     });
 
     clockOutBtn.addEventListener('click', () => {
         console.log('Clocking out...');
         userStatus.textContent = 'Inactive'; // Update status
+        statusIndicator.style.backgroundColor = 'red';
         closeAttendanceModal();
     });
 });
