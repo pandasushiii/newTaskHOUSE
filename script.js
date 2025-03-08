@@ -483,6 +483,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const productivityPercentage = productivityCard.querySelector('.percentage').textContent.trim();
     const productivityProgress = productivityCard.querySelector('.progress');
     productivityProgress.style.width = productivityPercentage;
+
+    // Add real-time date display
+    function updateDateTime() {
+        const now = new Date();
+        const dateTimeDisplay = document.getElementById('dateTimeDisplay');
+        dateTimeDisplay.textContent = now.toLocaleString();
+    }
+
+    // Update date and time every second
+    setInterval(updateDateTime, 1000);
+    updateDateTime(); // Initial call to set the date and time immediately
 });
 
 // Add this to your existing script.js

@@ -42,6 +42,7 @@
             </div>
         </div>
     </header>
+    <div class="date-time-display" id="dateTimeDisplay"></div>
     <div class="container">
         <!-- Sidebar -->
         <div class="sidebar" id="sidebar">
@@ -502,10 +503,6 @@
                     <input type="text" id="employeeName" required>
                 </div>
                 <div class="form-group">
-                    <label for="attendanceDate">Date</label>
-                    <input type="date" id="attendanceDate" required>
-                </div>
-                <div class="form-group">
                     <label for="attendanceStatus">Status</label>
                     <select id="attendanceStatus" class="status-select" required>
                         <option value="">Select Status</option>
@@ -533,6 +530,12 @@
                         </tr>
                     </thead>
                     <tbody id="logsTableBody">
+                        <!-- Example log entry -->
+                        <tr>
+                            <td>2024-03-15</td>
+                            <td>09:00 AM</td>
+                            <td>Clock In</td>
+                        </tr>
                         <!-- Logs will be dynamically added here -->
                     </tbody>
                 </table>
