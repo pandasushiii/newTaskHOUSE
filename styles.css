@@ -1,0 +1,1701 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #2a7a8c;  /* Changed from #32a852 to match navbar highlight */
+    color: white;
+    padding: 5px 20px;  /* Reset to original padding */
+    text-align: left;
+    font-size: 24px;
+    position: fixed;
+    width: 100%; 
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 50px; /* Fixed height for header */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header h1 {
+    display: none;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    margin-top: 40px; /* Match header height */
+}
+
+.sidebar {
+    width: 250px;
+    background: #1d4e89;
+    color: white;
+    padding: 15px;  /* Reduced padding */
+    height: calc(100vh - 40px); /* Subtract header height */
+    margin-top: 0; /* Remove margin */
+    transition: width 0.3s;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);  /* Added subtle shadow */
+    position: fixed; /* Fix sidebar position */
+    top: 40px; /* Position right below header */
+    left: 0;
+    z-index: 90;  /* Ensure sidebar stays above content but below header */
+    overflow-y: auto;  /* Add scrolling if content is too long */
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+#toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;  /* Slightly smaller */
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+#toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 15px;
+    text-align: center;  /* Center all content */
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;  /* Increased gap between image and name */
+}
+
+.profile p {
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0;
+    text-align: center;
+    width: 100%;  /* Ensure full width */
+}
+
+/* Update profile image styles */
+.profile-image-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;  /* Center the button */
+}
+
+.profile-icon {
+    width: 64px;  /* Made larger */
+    height: 64px;  /* Made larger */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-image-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Menu and dropdown styles */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu > li:not(.dropdown),
+.dropdown-toggle,
+.submenu li {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px 8px 32px;
+    gap: 10px;
+    border-radius: 8px;  /* Add rounded corners */
+    transition: all 0.2s ease;
+    cursor: pointer;
+    margin: 2px 8px;  /* Add margin for better visual spacing */
+}
+
+.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-toggle {
+    display: flex !important;
+    align-items: center;
+    width: 100%;
+    padding: 8px 12px 8px 32px;  /* Match other items */
+    color: white;
+    gap: 10px;
+}
+
+/* Submenu styles */
+.submenu {
+    position: relative;
+    width: calc(100% - 16px);  /* Account for parent margins */
+    margin: 2px 8px;
+    background-color: rgba(29, 78, 137, 0.5);  /* Keep existing background */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.submenu.hidden {
+    display: none;
+}
+
+.submenu li {
+    display: flex !important;
+    align-items: center;
+    padding: 8px 12px 8px 44px;  /* Indent submenu items */
+    gap: 10px;
+    width: 100%;
+}
+
+/* Menu icon styles */
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    filter: brightness(0) invert(1);
+}
+
+/* Hover effects */
+.menu > li.active:not(.dropdown),
+.dropdown.active > .dropdown-toggle,
+.submenu li.active {
+    background-color: #2a7a8c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu li:hover:not(.dropdown),
+.dropdown-toggle:hover,
+.submenu li:hover {
+    background-color: #0a2847;  /* Darker blue that matches the rewards card gradient */
+}
+
+/* Task Reports Styles */
+.task-reports-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.stat-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;  /* Add smooth transition */
+}
+
+/* Add hover effect */
+.stat-card:hover {
+    transform: translateY(-10px);  /* Float up by 10px */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);  /* Larger shadow when floating */
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #32a852;
+    margin: 10px 0;
+}
+
+.activity-list {
+    list-style: none;
+    padding: 0;
+}
+
+.activity-list li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+/* VA Utilization Styles */
+.va-utilization-container {
+    border-top: 2px solid #1d4e89;  /* Matches the header color */
+    padding-top: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.performance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.performance-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;  /* Add smooth transition */
+}
+
+/* Add hover effect */
+.performance-card:hover {
+    transform: translateY(-10px);  /* Float up by 10px */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);  /* Larger shadow when floating */
+}
+
+.percentage {
+    font-size: 28px;
+    font-weight: bold;
+    color: #32a852;
+    margin: 10px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: #32a852;
+    transition: width 0.3s ease;
+}
+
+.va-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.va-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: all 0.3s ease;  /* Add smooth transition */
+}
+
+/* Add hover effect */
+.va-card:hover {
+    transform: translateY(-10px);  /* Float up by 10px */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);  /* Larger shadow when floating */
+}
+
+.va-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.va-status {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.va-status.online {
+    color: #28a745;
+}
+
+.va-status.offline {
+    color: #dc3545;
+}
+
+.va-tasks {
+    font-size: 14px;
+    color: #666;
+}
+
+.report-section, .utilization-section {
+    margin-bottom: 25px;
+}
+
+.report-section h3, .utilization-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #32a852;
+}
+
+/* Update main content styles */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    background: linear-gradient(135deg, #e5eaf0, #d8e1e9);  /* Subtle gradient background */
+    margin-left: 250px;
+    transition: margin-left 0.3s;
+    min-height: calc(100vh - 40px);  /* Full viewport height minus header */
+    box-sizing: border-box;  /* Include padding in width calculation */
+}
+
+/* Adjust main content when sidebar is collapsed */
+.sidebar.collapsed + .main-content {
+    margin-left: 60px; /* Match collapsed sidebar width */
+}
+
+/* Update card container styles */
+.card {
+    background: linear-gradient(145deg, #f8f9fa, #e8eef3);  /* Subtle gradient background */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    width: 100%;  /* Fill available width */
+    height: calc(100vh - 120px);  /* Fill available height minus margins */
+    box-sizing: border-box;
+    overflow-y: auto;  /* Add scrolling if content is too long */
+}
+
+/* Adjust card when sidebar is collapsed */
+.sidebar.collapsed + .main-content .card {
+    width: 100%;  /* Keep full width */
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+/* Update tooltip styles to work for both buttons */
+.clock-btn,
+.user-profile-btn {
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 1001;  /* Ensure tooltips appear above dropdown */
+}
+
+/* Show tooltip on hover for both buttons */
+.clock-btn:hover .tooltip,
+.user-profile-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Arrow for both tooltips */
+.tooltip::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Make sure the image path is correct */
+.clock-btn img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Add message button styles */
+.message-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.message-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Update tooltip styles to include message button */
+.clock-btn,
+.user-profile-btn,
+.message-btn {
+    position: relative;
+}
+
+/* Update hover states for tooltip */
+.clock-btn:hover .tooltip,
+.user-profile-btn:hover .tooltip,
+.message-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Make sure the image path is correct for all buttons */
+.clock-btn img,
+.message-btn img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Update header controls and buttons */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 40px;
+    height: 40px;
+    position: relative;
+}
+
+/* Update common button styles for header buttons */
+.message-btn,
+.clock-btn,
+.user-profile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 3px; /* Reduced padding further to accommodate larger icons */
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 38px; /* Increased height */
+    width: 38px; /* Increased width */
+}
+
+/* Update header icons size */
+.header-icon {
+    width: 28px; /* Increased size */
+    height: 28px; /* Increased size */
+    filter: brightness(0) invert(1);
+}
+
+/* Update profile icon specifically */
+.user-profile-btn .profile-icon {
+    width: 28px; /* Match other header icons */
+    height: 28px; /* Match other header icons */
+}
+
+/* Update hover effect area */
+.message-btn:hover,
+.clock-btn:hover,
+.user-profile-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* User dropdown styles */
+.user-profile-container {
+    position: relative;
+    margin-right: 10px;  /* Reduced from 20px */
+}
+
+.user-dropdown {
+    position: absolute;
+    top: calc(100% + 5px);
+    right: -10px;  /* Adjusted from -20px to move dropdown right */
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.user-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 13px;
+}
+
+.user-dropdown-item:hover {
+    background-color: #2a7a8c;  /* Match navbar highlight color */
+    color: white;  /* Change text color to white on hover */
+}
+
+/* Update dropdown icon color on hover */
+.user-dropdown-item:hover .dropdown-icon {
+    filter: brightness(0) invert(1);  /* Make icon white on hover */
+}
+
+.dropdown-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    transition: filter 0.2s ease;  /* Smooth transition for icon color */
+}
+
+/* Common hover effect for header buttons */
+.message-btn:hover,
+.clock-btn:hover,
+.user-profile-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 1001;
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Show tooltip on hover */
+.message-btn:hover .tooltip,
+.clock-btn:hover .tooltip,
+.user-profile-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Update task header styles */
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;  /* Increased gap between icon and text */
+    margin-right: auto;  /* Push other elements to the right */
+}
+
+.header-task-icon {
+    width: 32px;  /* Slightly larger icon */
+    height: 32px;
+}
+
+.task-header h2 {
+    color: white;
+    margin: 0;
+    font-size: 32px;  /* Increased font size */
+    font-weight: 600;  /* Slightly reduced weight for better readability */
+    letter-spacing: 0.5px;  /* Add slight letter spacing */
+}
+
+/* Remove the old h2 styles */
+.card#my-tasks > h2 {
+    display: none;
+}
+
+/* Update task header buttons to match new background */
+.view-completed-btn,
+.add-task-card-btn {
+    background-color: white;
+    color: #1d4e89;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.view-completed-btn:hover,
+.add-task-card-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Update task counter to match new color scheme */
+.task-counter {
+    background-color: #1d4e89;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Update task icon color */
+.task-icon {
+    width: 16px;
+    height: 16px;
+    filter: none;  /* Remove white filter since background is now white */
+}
+
+/* Task header styles */
+.task-header {
+    background-color: #1d4e89;  /* Match sidebar color */
+    margin: -20px -20px 20px -20px;  /* Extend to card edges */
+    padding: 28px 30px;  /* Increased horizontal padding */
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+}
+
+/* View completed tasks button */
+.view-completed-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: white;
+    color: #1d4e89;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.view-completed-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Task icon styles */
+.task-icon {
+    width: 18px;
+    height: 18px;
+    filter: none;  /* Remove white filter since button is now white */
+}
+
+/* Task counter badge */
+.task-counter {
+    background-color: white;  /* White background */
+    color: #1d4e89;  /* Match button color */
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+/* Add task button styles */
+.add-task-card-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: white;
+    color: #1d4e89;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.add-task-card-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Plus icon styles */
+.plus-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Adjust card title spacing */
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Update profile styles for collapsed state */
+.sidebar.collapsed .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2px;
+}
+
+/* Keep profile name visible but adjust its style */
+.sidebar.collapsed .profile p {
+    font-size: 10px;  /* Smaller font size */
+    white-space: nowrap;  /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;  /* Add ellipsis for long names */
+    max-width: 56px;  /* Match collapsed sidebar width */
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Adjust profile image size */
+.sidebar.collapsed .profile-icon {
+    width: 32px;  /* Smaller image */
+    height: 32px;
+}
+
+.sidebar.collapsed .profile {
+    padding: 8px 0;
+    margin-bottom: 10px;
+}
+
+/* Hide text and arrows when collapsed */
+.sidebar.collapsed .menu-text,
+.sidebar.collapsed .arrow {
+    display: none;
+}
+
+/* Center icons when collapsed */
+.sidebar.collapsed .menu > li:not(.dropdown),
+.sidebar.collapsed .dropdown-toggle,
+.sidebar.collapsed .submenu li {
+    justify-content: center;
+    padding: 8px;
+}
+
+/* Style for dropdown arrow */
+.arrow {
+    margin-left: auto;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* Update submenu styles for collapsed state */
+.sidebar.collapsed .submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 200px;
+    margin: 0;
+    background-color: #1d4e89;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+/* Update collapsed sidebar menu styles */
+.sidebar.collapsed .menu > li:not(.dropdown),
+.sidebar.collapsed .dropdown-toggle,
+.sidebar.collapsed .submenu li {
+    padding: 8px 12px 8px 32px;
+    justify-content: flex-start;
+}
+
+/* Hide only text spans when collapsed */
+.sidebar.collapsed .menu-text,
+.sidebar.collapsed .arrow {
+    display: none;
+}
+
+/* Keep menu icons visible and in position */
+.sidebar.collapsed .menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 0;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Remove any conflicting styles */
+.sidebar.collapsed .menu > li:not(.dropdown),
+.sidebar.collapsed .dropdown-toggle,
+.sidebar.collapsed .submenu li {
+    width: auto;
+    margin: 2px 8px;
+}
+
+/* Hide text for all menu items when collapsed */
+.sidebar.collapsed .menu > li:not(.dropdown) span,
+.sidebar.collapsed .dropdown-toggle .menu-text,
+.sidebar.collapsed .dropdown-toggle .arrow,
+.sidebar.collapsed .submenu li span {
+    display: none !important;
+}
+
+/* Keep icons in their original position */
+.sidebar.collapsed .menu > li:not(.dropdown),
+.sidebar.collapsed .dropdown-toggle,
+.sidebar.collapsed .submenu li {
+    padding: 8px 12px 8px 32px;
+    justify-content: flex-start;
+}
+
+/* Keep menu icons visible */
+.sidebar.collapsed .menu-icon {
+    width: 20px;
+    height: 20px;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Keep submenu position and style */
+.sidebar.collapsed .submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 200px;
+    background-color: #1d4e89;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    border-radius: 8px;
+    padding: 4px 0;
+}
+
+/* Keep submenu icons aligned */
+.sidebar.collapsed .submenu li {
+    padding: 8px 12px 8px 16px;
+}
+
+/* Search and filter container */
+.search-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Update search bar styles */
+.search-wrapper {
+    width: 300px;  /* Fixed width for search bar */
+}
+
+.task-search {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.task-search:focus {
+    border-color: #2a7a8c;
+    outline: none;
+}
+
+/* Filter controls */
+.filter-controls {
+    display: flex;
+    gap: 10px;
+}
+
+/* Dropdown styles */
+.filter-dropdown {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+    min-width: 140px;
+    transition: border-color 0.2s;
+}
+
+.filter-dropdown:focus {
+    border-color: #2a7a8c;
+    outline: none;
+}
+
+.filter-dropdown:hover {
+    border-color: #2a7a8c;
+}
+
+/* Task table styles */
+.task-table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 14px;
+}
+
+.task-table th,
+.task-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.task-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.task-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Priority badges */
+.priority {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.priority.high {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.priority.medium {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.priority.low {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+/* Status badges */
+.status {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status.pending {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.status.in-progress {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.status.completed {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+/* Update rewards card styles */
+.rewards-card {
+    background: linear-gradient(to right, #0a2847, #1d4e89);
+    padding: 0;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rewards-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.rewards-title {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 32px;
+    margin: 0;
+    font-weight: normal;
+}
+
+.rewards-subtitle {
+    font-size: 36px;
+    margin: 10px 0 30px;
+    letter-spacing: 2px;
+}
+
+.rewards-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+}
+
+.rewards-list li {
+    color: #ffd700;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.rewards-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ffd700;
+}
+
+.rewards-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.email-info, .subject-info {
+    margin-bottom: 15px;
+}
+
+.email-info p, .subject-info p {
+    margin: 0;
+    color: #7fba00;
+    font-size: 16px;
+}
+
+.email-info a {
+    color: #7fba00;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.subject-format {
+    color: #7fba00 !important;
+    font-style: italic;
+}
+
+/* Adjust spacing for better layout */
+.welcome-header {
+    margin-bottom: 20px;
+}
+
+.feature-cards {
+    margin-top: 30px;
+}
+
+/* Update feature cards container to maintain layout balance */
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 35px;  /* Slightly reduced margin */
+    margin-bottom: 30px;  /* Add bottom margin for spacing */
+}
+
+/* Adjust welcome header for better spacing */
+.welcome-header {
+    margin-bottom: 25px;  /* Slightly reduced margin */
+    text-align: left;
+}
+
+.welcome-header h1 {
+    color: #1d4e89;
+    font-size: 32px;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.welcome-header h4 {
+    color: #666;
+    font-size: 18px;
+    margin: 0;
+    font-weight: normal;
+}
+
+/* Feature card styles */
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 0;
+    transition: all 0.3s ease;  /* Smooth transition for hover effect */
+}
+
+/* Add hover effect */
+.feature-card:hover {
+    transform: translateY(-10px);  /* Float up by 10px */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);  /* Larger shadow when floating */
+}
+
+.feature-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+}
+
+.feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.feature-title {
+    color: #1d4e89;
+    font-size: 24px;
+    margin: 0 0 10px;
+}
+
+.feature-description {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Memo card styles */
+.memo-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.memo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.memo-subject {
+    color: #1d4e89;
+    font-size: 20px;
+    margin: 0;
+}
+
+.memo-date {
+    color: #666;
+    font-size: 14px;
+}
+
+.memo-content {
+    color: #333;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.memo-content p {
+    margin: 0 0 15px;
+}
+
+.memo-content ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.memo-content li {
+    margin-bottom: 8px;
+}
+
+.memo-signature {
+    margin-top: 25px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Update company branding styles */
+.company-brand {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    width: 80%;  /* Control the width of the logo container */
+}
+
+/* Update company logo styles */
+.company-logo {
+    width: 100%;  /* Fill the container width */
+    height: auto;  /* Maintain aspect ratio */
+    max-height: 50px;  /* Limit maximum height */
+    object-fit: contain;
+    filter: brightness(0) invert(1);  /* Keep the logo white */
+}
+
+/* Adjust for collapsed sidebar */
+.sidebar.collapsed .company-brand {
+    width: 40px;  /* Smaller width when sidebar is collapsed */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sidebar.collapsed .company-logo {
+    max-height: 30px;  /* Smaller height when collapsed */
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #1d4e89;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Form styles */
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #2a7a8c;
+    outline: none;
+}
+
+.billed-hours .time-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.time-inputs input {
+    width: 100px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.submit-btn {
+    background-color: #2a7a8c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #236778;
+}
+
+.cancel-btn:hover {
+    background-color: #e4e4e4;
+}
+
+/* Priority select styles */
+.priority-select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.priority-select:focus {
+    border-color: #2a7a8c;
+    outline: none;
+}
+
+.priority-select:hover {
+    border-color: #2a7a8c;
+}
+
+/* Style the dropdown arrow */
+.priority-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 32px;
+}
+
+/* VA Table Container */
+.va-table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* VA Table Styles */
+.va-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.va-table th,
+.va-table td {
+    padding: 12px 8px;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.va-table th {
+    background-color: #1d4e89;
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.va-table td:first-child {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-align: left;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+
+/* Attendance Markers */
+.va-table td.present {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.va-table td.absent {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.va-table td.weekend {
+    background-color: #f8f9fa;
+    color: #666;
+}
+
+/* Hover effects */
+.va-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.va-table tbody tr:hover td:first-child {
+    background-color: #eef2f7;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .va-table th,
+    .va-table td {
+        padding: 8px 6px;
+        font-size: 13px;
+    }
+}
+
+/* Update Month Selector Styles */
+.month-selector {
+    margin-bottom: 15px;
+}
+
+.selector-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Common dropdown styles */
+.month-dropdown,
+.year-dropdown,
+.bill-type-dropdown {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+/* Specific widths for each dropdown */
+.month-dropdown {
+    min-width: 130px;
+}
+
+.year-dropdown {
+    min-width: 100px;
+}
+
+.bill-type-dropdown {
+    min-width: 160px;
+}
+
+/* Common hover and focus states */
+.month-dropdown:hover,
+.year-dropdown:hover,
+.bill-type-dropdown:hover {
+    border-color: #2a7a8c;
+}
+
+.month-dropdown:focus,
+.year-dropdown:focus,
+.bill-type-dropdown:focus {
+    border-color: #2a7a8c;
+    outline: none;
+}
+
+/* Style the dropdown arrows */
+.month-dropdown,
+.year-dropdown,
+.bill-type-dropdown {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 32px;
+}
+
+/* Update the current month header style */
+.va-table th#current-month {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* Update these styles in your existing VA table styles */
+
+/* Update total column styling */
+.va-table td.total {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #1d4e89;
+}
+
+/* Update weekend cell styling */
+.va-table td.weekend {
+    background-color: #f8f9fa;
+    color: #999;
+}
+
+/* Make the total header match other headers */
+.va-table th:last-child {
+    background-color: #1d4e89;
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    right: 0;
+    z-index: 2;
+}
+
+/* Make the total column sticky */
+.va-table td:last-child {
+    position: sticky;
+    right: 0;
+    background-color: #f8f9fa;
+    z-index: 1;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure first column stays above others */
+.va-table td:first-child {
+    z-index: 3;
+}
+
+/* Update submenu items for both Operation and Human Resources */
+.submenu[data-content="task-reports"],
+.submenu[data-content="va-utilization"],
+.submenu[data-content="memos"],
+.submenu[data-content="payroll"],
+.submenu[data-content="my-performance"],
+.submenu[data-content="employee-handbook"],
+.submenu[data-content="code-of-conduct"] {
+    background-color: rgba(29, 78, 137, 0.5);  /* Keep existing background */
+}
+
+/* Update hover and active states for all submenu items */
+.submenu li[data-content="task-reports"]:hover,
+.submenu li[data-content="va-utilization"]:hover,
+.submenu li[data-content="memos"]:hover,
+.submenu li[data-content="payroll"]:hover,
+.submenu li[data-content="my-performance"]:hover,
+.submenu li[data-content="employee-handbook"]:hover,
+.submenu li[data-content="code-of-conduct"]:hover,
+.submenu li[data-content="task-reports"].active,
+.submenu li[data-content="va-utilization"].active,
+.submenu li[data-content="memos"].active,
+.submenu li[data-content="payroll"].active,
+.submenu li[data-content="my-performance"].active,
+.submenu li[data-content="employee-handbook"].active,
+.submenu li[data-content="code-of-conduct"].active {
+    background-color: #0a2847;  /* Darker blue that matches the rewards card gradient */
+}
+
+/* Keep other menu items with original highlight color */
+.menu > li:not(.dropdown):hover,
+.dropdown-toggle:hover {
+    background-color: #2a7a8c;
+    border-radius: 8px;
+}
+
+/* Update Ad card styles with hover effect */
+.ad-card {
+    background: linear-gradient(to right, #0a2847, #1d4e89);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;  /* Add smooth transition */
+}
+
+/* Add hover effect */
+.ad-card:hover {
+    transform: translateY(-10px);  /* Float up by 10px */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);  /* Larger shadow when floating */
+}
+
+/* Keep existing ad card content styles */
+.ad-card h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+}
+
+.ad-card p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Update logo container styles */
+.logo-container {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    max-width: none; /* Remove max-width constraint */
+}
+
+/* Update logo image styles */
+.header-logo {
+    height: 40px; /* Match header height exactly */
+    width: auto; /* Let width adjust naturally based on aspect ratio */
+    object-fit: contain;
+    margin-left: 10px;
+    max-width: none; /* Remove max-width constraint */
+}

@@ -1,0 +1,488 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task House</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="Icons/userHeaderVA.png" alt="Task House" class="header-logo">
+        </div>
+        <div class="header-controls">
+            <button class="message-btn" data-tooltip="Messages">
+                <img src="Icons/messages.png" class="header-icon">
+                <span class="tooltip">Messages</span>
+            </button>
+            <button class="clock-btn" data-tooltip="Attendance">
+                <img src="Icons/attendance.png" class="header-icon">
+                <span class="tooltip">Attendance</span>
+            </button>
+            <div class="user-profile-container">
+                <button class="user-profile-btn" data-tooltip="User Info">
+                    <img src="Icons/user.png" alt="Profile" class="profile-icon">
+                    <span class="tooltip">User Info</span>
+                </button>
+                <div class="user-dropdown hidden">
+                    <a href="#" class="user-dropdown-item">
+                        <img src="Icons/edit.png" class="dropdown-icon">
+                        Edit Profile
+                    </a>
+                    <a href="#" class="user-dropdown-item">
+                        <img src="Icons/journal.png" class="dropdown-icon">
+                        Journal
+                    </a>
+                    <a href="#" class="user-dropdown-item">
+                        <img src="Icons/logout.png" class="dropdown-icon">
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <button id="toggle-btn">☰</button>
+            <div class="profile">
+                <div class="profile-container">
+                    <button class="profile-image-btn">
+                        <img src="Icons/user.png" alt="Profile" class="profile-icon">
+                    </button>
+                    <p>JASPER SUNGAHID</p>
+                </div>
+            </div>
+            <ul class="menu">
+                <li data-content="welcome">
+                    <img src="Icons/home.png" alt="Welcome" class="menu-icon">
+                    <span>Welcome</span>
+                </li>
+                <li data-content="my-tasks">
+                    <img src="Icons/tasks.png" alt="Tasks" class="menu-icon">
+                    <span>My Tasks</span>
+                </li>
+                <li class="dropdown">
+                    <span class="dropdown-toggle">
+                        <img src="Icons/operation.png" alt="Operation" class="menu-icon">
+                        <span class="menu-text">Operation</span>
+                        <span class="arrow">▼</span>
+                    </span>
+                    <ul class="submenu hidden">
+                        <li data-content="task-reports">
+                            <img src="Icons/taskreport.png" alt="Reports" class="menu-icon">
+                            <span>Task Reports</span>
+                        </li>
+                        <li data-content="va-utilization">
+                            <img src="Icons/vautils.png" alt="Utilization" class="menu-icon">
+                            <span>VA Utilization</span>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <span class="dropdown-toggle">
+                        <img src="hr.png" alt="HR" class="menu-icon">
+                        <span class="menu-text">Human Resources</span>
+                        <span class="arrow">▼</span>
+                    </span>
+                    <ul class="submenu hidden">
+                        <li data-content="memos">
+                            <img src="memos.png" alt="Memos" class="menu-icon">
+                            <span>Memos</span>
+                        </li>
+                        <li data-content="payroll">
+                            <img src="payroll.png" alt="Payroll" class="menu-icon">
+                            <span>Payroll</span>
+                        </li>
+                        <li data-content="my-performance">
+                            <img src="performance.png" alt="Performance" class="menu-icon">
+                            <span>My Performance</span>
+                        </li>
+                        <li data-content="employee-handbook">
+                            <img src="handbook.png" alt="Handbook" class="menu-icon">
+                            <span>Employee Handbook</span>
+                        </li>
+                        <li data-content="code-of-conduct">
+                            <img src="conduct.png" alt="Conduct" class="menu-icon">
+                            <span>Code of Conduct</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Add company branding -->
+            <div class="company-brand">
+                <img src="Icons/xignexLogo.png" alt="Xignex" class="company-logo">
+                
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="card" id="welcome">
+                <div class="welcome-header">
+                    <h1>Welcome To Task House</h1>
+                    <h4>Your Virtual Assistant Manager Platform</h4>
+                </div>
+                
+                <!-- Referral Rewards Card -->
+                <div class="rewards-card">
+                    <img src="Icons/newTHBanner.png" alt="Referral Program" class="banner-image">
+                </div>
+                
+                <!-- Update the feature cards section -->
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="Icons/taskreport.png" alt="Task Management">
+                        </div>
+                        <h2 class="feature-title">Task Management</h2>
+                        <p class="feature-description">Organize and Track your daily tasks</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="Icons/clock.png" alt="Time Tracking">
+                        </div>
+                        <h2 class="feature-title">Time Tracking</h2>
+                        <p class="feature-description">Monitors working hours daily</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="my-tasks" style="display: none;">
+                <div class="task-header">
+                    <div class="header-title">
+                        <img src="Icons/tasks.png" alt="Tasks" class="header-task-icon">
+                        <h2>My Tasks</h2>
+                    </div>
+                    <button class="view-completed-btn">
+                        <img src="Icons/completed.png" class="task-icon" alt="Completed">
+                        View Completed Tasks
+                        <span class="task-counter">12</span>
+                    </button>
+                    <button class="add-task-card-btn">
+                        <span class="plus-icon">+</span>
+                        Add Task
+                    </button>
+                </div>
+                
+                <!-- Update the search and filter section -->
+                <div class="search-filter-container">
+                    <div class="search-wrapper">
+                        <input type="text" id="taskSearch" placeholder="Search tasks..." class="task-search">
+                    </div>
+                    <div class="filter-controls">
+                        <select class="filter-dropdown" id="priorityFilter">
+                            <option value="">Priority Level</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                        <select class="filter-dropdown" id="statusFilter">
+                            <option value="">Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Add task table -->
+                <div class="task-table-container">
+                    <table class="task-table">
+                        <thead>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Task Description</th>
+                                <th>Task Date</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Approver</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Website Redesign</td>
+                                <td>Update homepage layout</td>
+                                <td>2024-03-15</td>
+                                <td><span class="priority high">High</span></td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td>John Smith</td>
+                            </tr>
+                            <tr>
+                                <td>Content Management</td>
+                                <td>Create blog posts</td>
+                                <td>2024-03-16</td>
+                                <td><span class="priority medium">Medium</span></td>
+                                <td><span class="status in-progress">In Progress</span></td>
+                                <td>Sarah Johnson</td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card" id="task-reports" style="display: none;">
+                <h2>Task Reports</h2>
+                
+                <!-- Update the search button in report controls -->
+                <div class="report-controls">
+                    <div class="report-search">
+                        <input type="text" placeholder="Search reports..." class="report-search-input">
+                        <button class="report-search-btn">
+                            <img src="search.png" alt="Search" class="search-icon">
+                            <span>Search</span>
+                        </button>
+                    </div>
+                    <div class="date-range">
+                        <div class="date-input">
+                            <label>From:</label>
+                            <input type="date" class="date-picker">
+                        </div>
+                        <div class="date-input">
+                            <label>To:</label>
+                            <input type="date" class="date-picker">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-reports-container">
+                    <div class="report-section">
+                        <h3>Daily Tasks Overview</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <h4>Completed Tasks</h4>
+                                <p class="stat-number">24</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Pending Tasks</h4>
+                                <p class="stat-number">12</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Overdue Tasks</h4>
+                                <p class="stat-number">3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="report-section">
+                        <h3>Recent Activity</h3>
+                        <ul class="activity-list">
+                            <li>Website Update - Completed at 2:30 PM</li>
+                            <li>Content Writing - In Progress</li>
+                            <li>SEO Optimization - Pending Review</li>
+                            <li>Client Meeting Notes - Completed at 11:00 AM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="va-utilization" style="display: none;">
+                <h2>VA Utilization</h2>
+                <div class="va-utilization-container">
+                    <!-- Add the VA utilization table -->
+                    <div class="utilization-section">
+                        <div class="month-selector">
+                            <div class="selector-group">
+                                <select class="month-dropdown">
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select class="year-dropdown">
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                </select>
+                                <select class="bill-type-dropdown">
+                                    <option value="billable">Billable Hours</option>
+                                    <option value="non-billable">Non-Billable Hours</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="va-table-container">
+                            <table class="va-table">
+                                <thead>
+                                    <tr>
+                                        <th id="current-month">MARCH</th>
+                                        <!-- Generate date columns 1-31 -->
+                                        <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                                        <th>6</th><th>7</th><th>8</th><th>9</th><th>10</th>
+                                        <th>11</th><th>12</th><th>13</th><th>14</th><th>15</th>
+                                        <th>16</th><th>17</th><th>18</th><th>19</th><th>20</th>
+                                        <th>21</th><th>22</th><th>23</th><th>24</th><th>25</th>
+                                        <th>26</th><th>27</th><th>28</th><th>29</th><th>30</th>
+                                        <th>31</th>
+                                        <th>TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Doe</td>
+                                        <!-- Example bill numbers -->
+                                        <td>8</td><td>8</td><td>7</td><td>8</td><td>8</td>
+                                        <td>8</td><td class="weekend">-</td><td class="weekend">-</td>
+                                        <td>7</td><td>8</td><td>8</td><td>8</td><td>7</td>
+                                        <td>8</td><td>8</td><td>8</td><td class="weekend">-</td>
+                                        <td class="weekend">-</td><td>8</td><td>7</td><td>8</td>
+                                        <td>8</td><td>8</td><td>8</td><td>7</td><td>8</td>
+                                        <td>8</td><td>8</td><td>7</td><td>8</td><td>8</td>
+                                        <td class="total">230</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jane Smith</td>
+                                        <!-- Example bill numbers -->
+                                        <td>7</td><td>8</td><td>8</td><td>8</td><td>7</td>
+                                        <td>8</td><td class="weekend">-</td><td class="weekend">-</td>
+                                        <td>8</td><td>8</td><td>7</td><td>8</td><td>8</td>
+                                        <td>8</td><td>7</td><td>8</td><td class="weekend">-</td>
+                                        <td class="weekend">-</td><td>8</td><td>8</td><td>7</td>
+                                        <td>8</td><td>8</td><td>8</td><td>7</td><td>8</td>
+                                        <td>8</td><td>8</td><td>7</td><td>8</td><td>8</td>
+                                        <td class="total">225</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Existing performance section -->
+                    <div class="utilization-section">
+                        <h3>Team Performance</h3>
+                        <div class="performance-grid">
+                            <div class="performance-card">
+                                <h4>Average Productivity</h4>
+                                <p class="percentage">87%</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 87%"></div>
+                                </div>
+                            </div>
+                            <div class="performance-card">
+                                <h4>Task Completion Rate</h4>
+                                <p class="percentage">92%</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Existing active VAs section -->
+                    <div class="utilization-section">
+                        <h3>Active VAs</h3>
+                        <div class="va-list">
+                            <div class="va-card">
+                                <p class="va-name">John Doe</p>
+                                <p class="va-status online">Online</p>
+                                <p class="va-tasks">Current Tasks: 5</p>
+                            </div>
+                            <div class="va-card">
+                                <p class="va-name">Jane Smith</p>
+                                <p class="va-status online">Online</p>
+                                <p class="va-tasks">Current Tasks: 3</p>
+                            </div>
+                            <div class="va-card">
+                                <p class="va-name">Mike Johnson</p>
+                                <p class="va-status offline">Offline</p>
+                                <p class="va-tasks">Current Tasks: 0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="memos" style="display: none;">
+                <h2>Memos</h2>
+                
+                <!-- Memo Card -->
+                <div class="memo-card">
+                    <div class="memo-header">
+                        <h3 class="memo-subject">Company Holiday Schedule Update</h3>
+                        <span class="memo-date">March 15, 2024</span>
+                    </div>
+                    <div class="memo-content">
+                        <p>Dear Valued Employees,</p>
+                        <p>We would like to inform everyone about the upcoming holiday schedule adjustments for the second quarter of 2024. Please take note of the following dates:</p>
+                        <ul>
+                            <li>April 10 - Regular Holiday</li>
+                            <li>May 1 - Labor Day</li>
+                            <li>June 12 - Independence Day</li>
+                        </ul>
+                        <p>For employees working during these holidays, the standard holiday premium rates will apply. Please coordinate with your immediate supervisor regarding any schedule adjustments.</p>
+                        <p>Thank you for your attention to this matter.</p>
+                        <p class="memo-signature">Best regards,<br>HR Department</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="payroll" style="display: none;">
+                <h2>Payroll</h2>
+                <p>Payroll content goes here.</p>
+            </div>
+            <div class="card" id="my-performance" style="display: none;">
+                <h2>My Performance</h2>
+                <p>My Performance content goes here.</p>
+            </div>
+            <div class="card" id="employee-handbook" style="display: none;">
+                <h2>Employee Handbook</h2>
+                <p>Employee Handbook content goes here.</p>
+            </div>
+            <div class="card" id="code-of-conduct" style="display: none;">
+                <h2>Code of Conduct</h2>
+                <p>Code of Conduct content goes here.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add the modal form after the main content -->
+    <div class="modal" id="addTaskModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Task</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form class="task-form">
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" id="projectName" required>
+                </div>
+                <div class="form-group">
+                    <label for="approverName">Approver's Name</label>
+                    <input type="text" id="approverName" required>
+                </div>
+                <div class="form-group">
+                    <label for="taskDescription">Task Description</label>
+                    <textarea id="taskDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="priorityLevel">Priority Level</label>
+                    <select id="priorityLevel" class="priority-select" required>
+                        <option value="">Select Priority</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <div class="form-group billed-hours">
+                    <label>Billed Hours</label>
+                    <div class="time-inputs">
+                        <input type="number" id="hours" min="0" placeholder="Hours" required>
+                        <input type="number" id="minutes" min="0" max="59" placeholder="Minutes" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Add Task</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
