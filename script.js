@@ -171,7 +171,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const addTaskBtn = document.querySelector('.add-task-card-btn');
     const modal = document.getElementById('addTaskModal');
     const closeBtn = document.querySelector('.close-modal');
-    const cancelBtn = document.querySelector('.cancel-btn');
     const taskForm = document.querySelector('.task-form');
 
     // Open modal
@@ -186,7 +185,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     closeBtn.addEventListener('click', closeModal);
-    cancelBtn.addEventListener('click', closeModal);
 
     // Close on outside click
     modal.addEventListener('click', (e) => {
@@ -413,17 +411,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const attendanceBtn = document.querySelector('.clock-btn');
     const attendanceModal = document.getElementById('attendanceModal');
     const attendanceCloseBtn = attendanceModal.querySelector('.close-modal');
-    const attendanceCancelBtn = attendanceModal.querySelector('.cancel-btn');
     const clockInBtn = attendanceModal.querySelector('.clock-in-btn');
     const breakTimeBtn = attendanceModal.querySelector('.break-time-btn');
     const clockOutBtn = attendanceModal.querySelector('.clock-out-btn');
-    const attendanceForm = attendanceModal.querySelector('.attendance-form');
-    const userStatus = document.getElementById('userStatus'); // Add this line
+    const userStatus = document.getElementById('userStatus');
     const statusIndicator = document.getElementById('statusIndicator');
     const logsTableBody = document.getElementById('logsTableBody');
-    const scheduleStart = document.getElementById('scheduleStart');
-    const scheduleEnd = document.getElementById('scheduleEnd');
-    const specificDate = document.getElementById('specificDate');
     const scheduleTableBody = document.getElementById('scheduleTableBody');
 
     // Open modal
@@ -434,11 +427,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Close modal functions
     function closeAttendanceModal() {
         attendanceModal.classList.remove('show');
-        attendanceForm.reset();
     }
 
     attendanceCloseBtn.addEventListener('click', closeAttendanceModal);
-    attendanceCancelBtn.addEventListener('click', closeAttendanceModal);
 
     // Close on outside click
     attendanceModal.addEventListener('click', (e) => {
@@ -460,7 +451,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Handle button actions
     clockInBtn.addEventListener('click', () => {
         console.log('Clocking in...');
-        userStatus.textContent = 'Active'; // Update status
+        userStatus.textContent = 'Active';
         statusIndicator.style.backgroundColor = 'green';
         addLogEntry('Clock In');
         closeAttendanceModal();
@@ -468,7 +459,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     breakTimeBtn.addEventListener('click', () => {
         console.log('Taking a break...');
-        userStatus.textContent = 'Break Time'; // Update status
+        userStatus.textContent = 'Break Time';
         statusIndicator.style.backgroundColor = 'red';
         addLogEntry('Break Time');
         closeAttendanceModal();
@@ -476,7 +467,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     clockOutBtn.addEventListener('click', () => {
         console.log('Clocking out...');
-        userStatus.textContent = 'Inactive'; // Update status
+        userStatus.textContent = 'Inactive';
         statusIndicator.style.backgroundColor = 'red';
         addLogEntry('Clock Out');
         closeAttendanceModal();

@@ -443,6 +443,65 @@
                 <h2>Code of Conduct</h2>
                 <p>Code of Conduct content goes here.</p>
             </div>
+            <div class="card" id="attendanceModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Mark Attendance</h3>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="attendance-actions">
+                        <button type="button" class="clock-in-btn">Clock In</button>
+                        <button type="button" class="break-time-btn">Break Time</button>
+                        <button type="button" class="clock-out-btn">Clock Out</button>
+                    </div>
+                    <!-- Add schedule table -->
+                    <div class="schedule-table-container">
+                        <h4>Weekly Schedule</h4>
+                        <table class="schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>Day</th>
+                                    <th>Start Time</th>
+                                    <th>End Time</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="scheduleTableBody">
+                                <!-- Example schedule entry -->
+                                <tr>
+                                    <td>Monday</td>
+                                    <td>07:00 AM</td>
+                                    <td>01:00 PM</td>
+                                    <td><button class="edit-schedule-btn">Edit</button></td>
+                                </tr>
+                                <!-- Schedule will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Add logs table -->
+                    <div class="logs-table-container">
+                        <h4>Attendance Logs</h4>
+                        <table class="logs-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="logsTableBody">
+                                <!-- Example log entry -->
+                                <tr>
+                                    <td>2024-03-15</td>
+                                    <td>09:00 AM</td>
+                                    <td>Clock In</td>
+                                </tr>
+                                <!-- Logs will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -487,80 +546,6 @@
                     <button type="button" class="cancel-btn">Cancel</button>
                 </div>
             </form>
-        </div>
-    </div>
-
-    <!-- Add the modal form after the main content -->
-    <div class="modal" id="attendanceModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Mark Attendance</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <form class="attendance-form">
-                <!-- Remove Employee Name and Status fields -->
-                <div class="form-group">
-                    <label for="scheduleRange">Schedule Range</label>
-                    <input type="date" id="scheduleStart" required>
-                    <input type="date" id="scheduleEnd" required>
-                </div>
-                <div class="form-group">
-                    <label for="specificDate">Edit Specific Date</label>
-                    <input type="date" id="specificDate" required>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="clock-in-btn">Clock In</button>
-                    <button type="button" class="break-time-btn">Break Time</button>
-                    <button type="button" class="clock-out-btn">Clock Out</button>
-                    <button type="button" class="cancel-btn">Cancel</button>
-                </div>
-            </form>
-            <!-- Add logs table -->
-            <div class="logs-table-container">
-                <h4>Attendance Logs</h4>
-                <table class="logs-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="logsTableBody">
-                        <!-- Example log entry -->
-                        <tr>
-                            <td>2024-03-15</td>
-                            <td>09:00 AM</td>
-                            <td>Clock In</td>
-                        </tr>
-                        <!-- Logs will be dynamically added here -->
-                    </tbody>
-                </table>
-            </div>
-            <!-- Add schedule table -->
-            <div class="schedule-table-container">
-                <h4>Weekly Schedule</h4>
-                <table class="schedule-table">
-                    <thead>
-                        <tr>
-                            <th>Day</th>
-                            <th>Start Time</th>
-                            <th>End Time</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="scheduleTableBody">
-                        <!-- Example schedule entry -->
-                        <tr>
-                            <td>Monday</td>
-                            <td>07:00 AM</td>
-                            <td>01:00 PM</td>
-                            <td><button class="edit-schedule-btn">Edit</button></td>
-                        </tr>
-                        <!-- Schedule will be dynamically added here -->
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
 </body>
