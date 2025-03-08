@@ -1844,3 +1844,39 @@ body {
 .attendance-form .form-group input[type="date"]:hover {
     border-color: #2a7a8c;
 }
+
+/* Schedule table styles */
+.schedule-table-container {
+    margin-top: 20px;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.schedule-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.edit-schedule-btn {
+    background-color: #2a7a8c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-schedule-btn:hover {
+    background-color: #236778;
+}

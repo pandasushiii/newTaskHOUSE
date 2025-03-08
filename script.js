@@ -424,6 +424,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const scheduleStart = document.getElementById('scheduleStart');
     const scheduleEnd = document.getElementById('scheduleEnd');
     const specificDate = document.getElementById('specificDate');
+    const scheduleTableBody = document.getElementById('scheduleTableBody');
 
     // Open modal
     attendanceBtn.addEventListener('click', () => {
@@ -479,6 +480,45 @@ document.addEventListener("DOMContentLoaded", function () {
         statusIndicator.style.backgroundColor = 'red';
         addLogEntry('Clock Out');
         closeAttendanceModal();
+    });
+
+    // Function to add schedule entry
+    function addScheduleEntry(day, startTime, endTime) {
+        const scheduleRow = document.createElement('tr');
+        scheduleRow.innerHTML = `
+            <td>${day}</td>
+            <td>${startTime}</td>
+            <td>${endTime}</td>
+            <td><button class="edit-schedule-btn">Edit</button></td>
+        `;
+        scheduleTableBody.appendChild(scheduleRow);
+    }
+
+    // Example schedule entries
+    addScheduleEntry('Monday', '07:00 AM', '01:00 PM');
+    addScheduleEntry('Tuesday', '07:00 AM', '01:00 PM');
+    addScheduleEntry('Wednesday', '07:00 AM', '01:00 PM');
+    addScheduleEntry('Thursday', '07:00 AM', '01:00 PM');
+    addScheduleEntry('Friday', '07:00 AM', '06:00 PM');
+    addScheduleEntry('Saturday', '07:00 AM', '06:00 PM');
+    addScheduleEntry('Sunday', 'Rest Day', '');
+
+    // Handle schedule editing
+    scheduleTableBody.addEventListener('click', (e) => {
+        if (e.target.classList.contains('edit-schedule-btn')) {
+            const row = e.target.closest('tr');
+            const day = row.children[0].textContent;
+            const startTime = row.children[1].textContent;
+            const endTime = row.children[2].textContent;
+
+            const newStartTime = prompt(`Edit start time for ${day}:`, startTime);
+            const newEndTime = prompt(`Edit end time for ${day}:`, endTime);
+
+            if (newStartTime !== null && newEndTime !== null) {
+                row.children[1].textContent = newStartTime;
+                row.children[2].textContent = newEndTime;
+            }
+        }
     });
 
     // Fix Average Productivity progress bar
