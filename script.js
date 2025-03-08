@@ -408,6 +408,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initial table update with current year
     updateTableDates(currentMonth + 1, currentYear);
+
+    // Add Attendance Modal functionality
+    const attendanceBtn = document.querySelector('.clock-btn');
+    const attendanceModal = document.getElementById('attendanceModal');
+    const attendanceCloseBtn = attendanceModal.querySelector('.close-modal');
+    const attendanceCancelBtn = attendanceModal.querySelector('.cancel-btn');
+    const attendanceForm = attendanceModal.querySelector('.attendance-form');
+
+    // Open modal
+    attendanceBtn.addEventListener('click', () => {
+        attendanceModal.classList.add('show');
+    });
+
+    // Close modal functions
+    function closeAttendanceModal() {
+        attendanceModal.classList.remove('show');
+        attendanceForm.reset();
+    }
+
+    attendanceCloseBtn.addEventListener('click', closeAttendanceModal);
+    attendanceCancelBtn.addEventListener('click', closeAttendanceModal);
+
+    // Close on outside click
+    attendanceModal.addEventListener('click', (e) => {
+        if (e.target === attendanceModal) {
+            closeAttendanceModal();
+        }
+    });
+
+    // Handle form submission
+    attendanceForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Add your form submission logic here
+        closeAttendanceModal();
+    });
 });
 
 // Add this to your existing script.js

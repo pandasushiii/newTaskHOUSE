@@ -842,7 +842,7 @@ body {
 /* Hide only text spans when collapsed */
 .sidebar.collapsed .menu-text,
 .sidebar.collapsed .arrow {
-    display: none;
+    display: none !important;
 }
 
 /* Keep menu icons visible and in position */
@@ -1332,7 +1332,7 @@ body {
 }
 
 /* Form styles */
-.task-form {
+.attendance-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -1350,7 +1350,7 @@ body {
 }
 
 .form-group input,
-.form-group textarea {
+.form-group select {
     padding: 8px 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -1358,18 +1358,9 @@ body {
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group select:focus {
     border-color: #2a7a8c;
     outline: none;
-}
-
-.billed-hours .time-inputs {
-    display: flex;
-    gap: 10px;
-}
-
-.time-inputs input {
-    width: 100px;
 }
 
 .form-actions {
@@ -1405,8 +1396,8 @@ body {
     background-color: #e4e4e4;
 }
 
-/* Priority select styles */
-.priority-select {
+/* Status select styles */
+.status-select {
     padding: 8px 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -1417,17 +1408,17 @@ body {
     transition: border-color 0.2s;
 }
 
-.priority-select:focus {
+.status-select:focus {
     border-color: #2a7a8c;
     outline: none;
 }
 
-.priority-select:hover {
+.status-select:hover {
     border-color: #2a7a8c;
 }
 
 /* Style the dropdown arrow */
-.priority-select {
+.status-select {
     appearance: none;
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
