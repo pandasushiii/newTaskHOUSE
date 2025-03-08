@@ -475,14 +475,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to add schedule entry
     function addScheduleEntry(day, startTime, endTime) {
-        const scheduleRow = document.createElement('tr');
-        scheduleRow.innerHTML = `
-            <td>${day}</td>
-            <td>${startTime}</td>
-            <td>${endTime}</td>
-            <td><button class="edit-schedule-btn">Edit</button></td>
-        `;
-        scheduleTableBody.appendChild(scheduleRow);
+        // Check if the entry already exists
+        const existingRow = Array.from(scheduleTableBody.children).find(row => row.children[0].textContent === day);
+        if (existingRow) {
+            existingRow.children[1].textContent = startTime;
+            existingRow.children[2].textContent = endTime;
+        } else {
+            const scheduleRow = document.createElement('tr');
+            scheduleRow.innerHTML = `
+                <td>${day}</td>
+                <td>${startTime}</td>
+                <td>${endTime}</td>
+                <td><button class="edit-schedule-btn">Edit</button></td>
+            `;
+            scheduleTableBody.appendChild(scheduleRow);
+        }
     }
 
     // Example schedule entries
