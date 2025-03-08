@@ -420,6 +420,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const attendanceForm = attendanceModal.querySelector('.attendance-form');
     const userStatus = document.getElementById('userStatus'); // Add this line
     const statusIndicator = document.getElementById('statusIndicator');
+    const logsTableBody = document.getElementById('logsTableBody');
 
     // Open modal
     attendanceBtn.addEventListener('click', () => {
@@ -442,11 +443,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Function to add log entry
+    function addLogEntry(status) {
+        const now = new Date();
+        const date = now.toLocaleDateString();
+        const time = now.toLocaleTimeString();
+        const logRow = document.createElement('tr');
+        logRow.innerHTML = `<td>${date}</td><td>${time}</td><td>${status}</td>`;
+        logsTableBody.appendChild(logRow);
+    }
+
     // Handle button actions
     clockInBtn.addEventListener('click', () => {
         console.log('Clocking in...');
         userStatus.textContent = 'Active'; // Update status
         statusIndicator.style.backgroundColor = 'green';
+        addLogEntry('Clock In');
         closeAttendanceModal();
     });
 
@@ -454,6 +466,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('Taking a break...');
         userStatus.textContent = 'Break Time'; // Update status
         statusIndicator.style.backgroundColor = 'red';
+        addLogEntry('Break Time');
         closeAttendanceModal();
     });
 
@@ -461,8 +474,15 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('Clocking out...');
         userStatus.textContent = 'Inactive'; // Update status
         statusIndicator.style.backgroundColor = 'red';
+        addLogEntry('Clock Out');
         closeAttendanceModal();
     });
+
+    // Fix Average Productivity progress bar
+    const productivityCard = document.querySelector('.performance-card:nth-child(1)');
+    const productivityPercentage = productivityCard.querySelector('.percentage').textContent.trim();
+    const productivityProgress = productivityCard.querySelector('.progress');
+    productivityProgress.style.width = productivityPercentage;
 });
 
 // Add this to your existing script.js

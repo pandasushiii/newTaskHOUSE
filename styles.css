@@ -1752,3 +1752,42 @@ body {
     padding: 2px 8px;
     border-radius: 4px;
 }
+
+/* Logs table styles */
+.logs-table-container {
+    margin-top: 20px;
+}
+
+.logs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.logs-table th,
+.logs-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.logs-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+/* Fix Average Productivity progress bar */
+.performance-card .progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px; /* Add margin for spacing */
+}
+
+.performance-card .progress {
+    height: 100%;
+    background: #32a852;
+    transition: width 0.3s ease;
+}
