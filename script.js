@@ -486,13 +486,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Example schedule entries
-    addScheduleEntry('Monday', '07:00 AM', '01:00 PM');
-    addScheduleEntry('Tuesday', '07:00 AM', '01:00 PM');
-    addScheduleEntry('Wednesday', '07:00 AM', '01:00 PM');
-    addScheduleEntry('Thursday', '07:00 AM', '01:00 PM');
-    addScheduleEntry('Friday', '07:00 AM', '06:00 PM');
-    addScheduleEntry('Saturday', '07:00 AM', '06:00 PM');
-    addScheduleEntry('Sunday', 'Rest Day', '');
+    const scheduleEntries = [
+        { day: 'Monday', startTime: '07:00 AM', endTime: '01:00 PM' },
+        { day: 'Tuesday', startTime: '07:00 AM', endTime: '01:00 PM' },
+        { day: 'Wednesday', startTime: '07:00 AM', endTime: '01:00 PM' },
+        { day: 'Thursday', startTime: '07:00 AM', endTime: '01:00 PM' },
+        { day: 'Friday', startTime: '07:00 AM', endTime: '06:00 PM' },
+        { day: 'Saturday', startTime: '07:00 AM', endTime: '06:00 PM' },
+        { day: 'Sunday', startTime: 'Rest Day', endTime: '' }
+    ];
+
+    scheduleEntries.forEach(entry => addScheduleEntry(entry.day, entry.startTime, entry.endTime));
 
     // Handle schedule editing
     scheduleTableBody.addEventListener('click', (e) => {
