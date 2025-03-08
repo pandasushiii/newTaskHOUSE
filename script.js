@@ -414,6 +414,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const attendanceModal = document.getElementById('attendanceModal');
     const attendanceCloseBtn = attendanceModal.querySelector('.close-modal');
     const attendanceCancelBtn = attendanceModal.querySelector('.cancel-btn');
+    const clockInBtn = attendanceModal.querySelector('.clock-in-btn');
+    const breakTimeBtn = attendanceModal.querySelector('.break-time-btn');
+    const clockOutBtn = attendanceModal.querySelector('.clock-out-btn');
     const attendanceForm = attendanceModal.querySelector('.attendance-form');
 
     // Open modal
@@ -437,10 +440,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Handle form submission
-    attendanceForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        // Add your form submission logic here
+    // Handle button actions
+    clockInBtn.addEventListener('click', () => {
+        console.log('Clocking in...');
+        closeAttendanceModal();
+    });
+
+    breakTimeBtn.addEventListener('click', () => {
+        console.log('Taking a break...');
+        closeAttendanceModal();
+    });
+
+    clockOutBtn.addEventListener('click', () => {
+        console.log('Clocking out...');
         closeAttendanceModal();
     });
 });
