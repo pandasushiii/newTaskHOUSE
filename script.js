@@ -458,10 +458,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     breakTimeBtn.addEventListener('click', () => {
-        console.log('Taking a break...');
-        userStatus.textContent = 'Break Time';
-        statusIndicator.style.backgroundColor = 'red';
-        addLogEntry('Break Time');
+        if (breakTimeBtn.textContent === 'Break Time') {
+            console.log('Taking a break...');
+            userStatus.textContent = 'Break Time';
+            statusIndicator.style.backgroundColor = 'red';
+            addLogEntry('Break Time');
+            breakTimeBtn.textContent = 'End Break';
+        } else {
+            console.log('Ending break...');
+            userStatus.textContent = 'Active';
+            statusIndicator.style.backgroundColor = 'green';
+            addLogEntry('End Break');
+            breakTimeBtn.textContent = 'Break Time';
+        }
         closeAttendanceModal();
     });
 
