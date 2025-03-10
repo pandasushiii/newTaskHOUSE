@@ -623,6 +623,20 @@ document.addEventListener("DOMContentLoaded", function () {
     insertFileBtn.addEventListener('click', () => {
         alert('File insertion functionality is not implemented yet.');
     });
+
+    // Add this to your existing script.js
+    const messageBtn = document.querySelector('.message-btn');
+    const messagesCard = document.getElementById('messages');
+
+    messageBtn.addEventListener('click', () => {
+        // Hide all content divs
+        contentDivs.forEach(div => {
+            div.style.display = "none";
+        });
+
+        // Show the Messages section
+        messagesCard.style.display = "block";
+    });
 });
 
 // Add this to your existing script.js
