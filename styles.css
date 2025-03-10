@@ -2110,8 +2110,31 @@ body {
 }
 
 .group-chat-members li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+}
+
+.member-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.status-indicator.online {
+    background-color: #28a745;
+}
+
+.status-indicator.offline {
+    background-color: #dc3545;
 }
 
 /* Messages section styles */
