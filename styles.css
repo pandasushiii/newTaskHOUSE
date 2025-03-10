@@ -2002,7 +2002,175 @@ body {
 
 .message.user-message {
     background-color: #d1e7dd;
-    align-self: flex-start; /* Adjusted to align left */
+    align-self: flex-end; /* Adjusted to align right */
+}
+
+.message.other-message {
+    background-color: #f8d7da;
+    align-self: flex-start;
+}
+
+.message-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    position: sticky;
+    bottom: 0;
+}
+
+.message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.insert-file-btn,
+.send-message-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.insert-file-btn:hover,
+.send-message-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.insert-file-icon,
+.send-message-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Group chat modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1001;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-body {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.group-chat-members {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.group-chat-members li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Messages section styles */
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.messages-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+}
+
+.group-chat-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.group-chat-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.group-chat-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.messages-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.message-text {
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+.message {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    max-width: 60%;
+}
+
+.message.user-message {
+    background-color: #d1e7dd;
+    align-self: flex-end; /* Adjusted to align right */
 }
 
 .message.other-message {
