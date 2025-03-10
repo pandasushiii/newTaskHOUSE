@@ -38,6 +38,23 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Handle "View Completed Tasks" button
+    const viewCompletedBtn = document.querySelector('.view-completed-btn');
+    const completedTasks = document.querySelector('.completed-tasks');
+    const taskTableContainer = document.querySelector('.task-table-container');
+
+    viewCompletedBtn.addEventListener('click', () => {
+        if (completedTasks.style.display === "none") {
+            completedTasks.style.display = "block";
+            taskTableContainer.style.display = "none";
+            viewCompletedBtn.textContent = "View Pending Tasks";
+        } else {
+            completedTasks.style.display = "none";
+            taskTableContainer.style.display = "block";
+            viewCompletedBtn.textContent = "View Completed Tasks";
+        }
+    });
+
     // Handle dropdowns
     dropdowns.forEach(dropdown => {
         const span = dropdown.querySelector('span');
@@ -172,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById('addTaskModal');
     const closeBtn = document.querySelector('.close-modal');
     const taskForm = document.querySelector('.task-form');
+    const cancelBtn = document.querySelector('.cancel-btn');
 
     // Open modal
     addTaskBtn.addEventListener('click', () => {
@@ -185,6 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
 
     // Close on outside click
     modal.addEventListener('click', (e) => {
