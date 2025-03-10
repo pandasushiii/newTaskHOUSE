@@ -609,7 +609,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const message = messageInput.value.trim();
         if (message) {
             const messageElement = document.createElement('div');
-            messageElement.classList.add('message');
+            messageElement.classList.add('message', 'user-message');
             messageElement.innerHTML = `<p><strong>You:</strong> ${message}</p>`;
             messageText.appendChild(messageElement);
             messageInput.value = '';
