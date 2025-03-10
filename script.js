@@ -600,7 +600,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    
+    // Example group chat members with status
+    const groupChatMembers = [
+        { name: 'John Doe', status: 'online' },
+        { name: 'Jane Smith', status: 'offline' },
+        { name: 'Mike Johnson', status: 'break-time' }
+    ];
+
+    const groupChatMembersList = document.querySelector('.group-chat-members');
+    groupChatMembers.forEach(member => {
+        const memberElement = document.createElement('li');
+        memberElement.innerHTML = `
+            <span>${member.name}</span>
+            <div class="member-status">
+                <span class="status-indicator ${member.status}"></span>
+            </div>
+        `;
+        groupChatMembersList.appendChild(memberElement);
+    });
+
     // Handle message sending
     const sendMessageBtn = document.querySelector('.send-message-btn');
     const messageInput = document.querySelector('.message-input');
@@ -637,25 +655,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Show the Messages section
         messagesCard.style.display = "block";
-    });
-
-    // Example group chat members with status
-    const groupChatMembers = [
-        { name: 'John Doe', status: 'online' },
-        { name: 'Jane Smith', status: 'offline' },
-        { name: 'Mike Johnson', status: 'online' }
-    ];
-
-    const groupChatMembersList = document.querySelector('.group-chat-members');
-    groupChatMembers.forEach(member => {
-        const memberElement = document.createElement('li');
-        memberElement.innerHTML = `
-            <span>${member.name}</span>
-            <div class="member-status">
-                <span class="status-indicator ${member.status}"></span>
-            </div>
-        `;
-        groupChatMembersList.appendChild(memberElement);
     });
 });
 
