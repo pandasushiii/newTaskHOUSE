@@ -561,6 +561,25 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
+
+    // Handle 13th month pay modal
+    const thirteenthMonthBtn = document.querySelector('.thirteenth-month-btn');
+    const thirteenthMonthModal = document.getElementById('thirteenthMonthModal');
+    const thirteenthMonthCloseBtn = thirteenthMonthModal.querySelector('.close-modal');
+
+    thirteenthMonthBtn.addEventListener('click', () => {
+        thirteenthMonthModal.classList.add('show');
+    });
+
+    thirteenthMonthCloseBtn.addEventListener('click', () => {
+        thirteenthMonthModal.classList.remove('show');
+    });
+
+    thirteenthMonthModal.addEventListener('click', (e) => {
+        if (e.target === thirteenthMonthModal) {
+            thirteenthMonthModal.classList.remove('show');
+        }
+    });
 });
 
 // Add this to your existing script.js

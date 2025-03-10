@@ -453,15 +453,144 @@
             </div>
             <div class="card" id="payroll" style="display: none;">
                 <h2>Payroll</h2>
-                <p>Payroll content goes here.</p>
+                <button class="thirteenth-month-btn">13th Month Pay</button>
+                <table class="payroll-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Pay Period</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Example rows -->
+                        <tr>
+                            <td>2024-03-15</td>
+                            <td>March 1 - March 15</td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>2024-03-31</td>
+                            <td>March 16 - March 31</td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+                <div class="modal" id="thirteenthMonthModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>13th Month Pay</h3>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <table class="thirteenth-month-table">
+                            <thead>
+                                <tr>
+                                    <th>Employee's Name</th>
+                                    <th>Pay Period</th>
+                                    <th>Total Base Pay</th>
+                                    <th>Net 13th Month Pay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Example rows -->
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>2024</td>
+                                    <td>$50,000</td>
+                                    <td>$4,166.67</td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Smith</td>
+                                    <td>2024</td>
+                                    <td>$48,000</td>
+                                    <td>$4,000.00</td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             <div class="card" id="my-performance" style="display: none;">
                 <h2>My Performance</h2>
-                <p>My Performance content goes here.</p>
+                <div class="performance-task-progress">
+                    <h3>Performance Task Progress</h3>
+                    <!-- Add progress bar or chart here -->
+                </div>
+                <table class="performance-table">
+                    <thead>
+                        <tr>
+                            <th>Evaluator</th>
+                            <th>Date</th>
+                            <th>Time Management</th>
+                            <th>Initiative</th>
+                            <th>Responsive</th>
+                            <th>Accuracy</th>
+                            <th>Competence</th>
+                            <th>Reports</th>
+                            <th>Compliance</th>
+                            <th>Respect</th>
+                            <th>Remarks</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Example rows -->
+                        <tr>
+                            <td>John Smith</td>
+                            <td>2024-03-15</td>
+                            <td>Excellent</td>
+                            <td>Good</td>
+                            <td>Excellent</td>
+                            <td>Good</td>
+                            <td>Excellent</td>
+                            <td>Good</td>
+                            <td>Excellent</td>
+                            <td>Good</td>
+                            <td>Keep up the good work</td>
+                            <td>Promotion</td>
+                        </tr>
+                        <tr>
+                            <td>Sarah Johnson</td>
+                            <td>2024-03-16</td>
+                            <td>Good</td>
+                            <td>Good</td>
+                            <td>Good</td>
+                            <td>Good</td>
+                            <td>Good</td>
+                            <td>Good</td>
+                            <td>Good</td>
+                            <td>Good</td>
+                            <td>Needs improvement</td>
+                            <td>Training</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
             </div>
             <div class="card" id="employee-handbook" style="display: none;">
                 <h2>Employee Handbook</h2>
-                <p>Employee Handbook content goes here.</p>
+                <div class="handbook-content">
+                    <h3>XIGNEX DIGITALSOLUTIONS INC</h3>
+                    <h4>VIRTUAL BIZNEST</h4>
+                    <h4>EMPLOYEE HANDBOOK</h4>
+                    <h5>A. THE COMPANY</h5>
+                    <h6>A.1. Company Profile: Who We Are and What We Do</h6>
+                    <p>We are a breed of industry-honed Virtual Assistants with wide ranges of experience in our respective domains or niches, capable of remotely executing a host of unparalleled services on various facets and levels of business.</p>
+                    <p>We build trust with the clients whom we treat as our business partners. We operate on the fact that everyone is looking for the best virtual assistant services provider to help them cut overhead costs while achieving results. We are committed to making our client’s business our business.</p>
+                    <h6>A.2. Mission and Vision</h6>
+                    <p><strong>Mission</strong></p>
+                    <p>Taking on key operational tasks strategically for success-driven entrepreneurs, to give them significant advantage in fulfilling their goals and impact on their community.</p>
+                    <p><strong>Vision</strong></p>
+                    <p>To be reputable in fostering the vision of success-driven businesses through the use of internet technology, skilled professionals and outstanding business relationship.</p>
+                    <h6>A.3. Values</h6>
+                    <p><strong>Commitment</strong> - We are committed to the company’s goal of fulfilling every client’s vision. Being committed to something bigger than the individual means every person acts in ways that are beyond personal gain or concerns. We assist and support our teammates because we can accomplish more by working together as a group.</p>
+                    <p><strong>Order</strong> - We continuously strive for order in the way we design our processes, handle our client’s businesses and behave toward each other. Everyone is required to uphold the highest standards in ethical and professional practices.</p>
+                    <p><strong>Respect</strong> - We respect the laws, the government, the people we work with, our clients, the company and ourselves. Being reliable is evidence of respect.</p>
+                    <p><strong>Excellence</strong> - We achieve excellence by constant progress not perfection. It is a way of life. We learn from our mistakes and actively seek knowledge. We commit ourselves to lifelong learning and continuous professional development. We manage tough situations with courage and candor.</p>
+                    <!-- ...additional handbook content... -->
+                </div>
             </div>
             <div class="card" id="code-of-conduct" style="display: none;">
                 <h2>Code of Conduct</h2>
