@@ -652,7 +652,6 @@ document.addEventListener("DOMContentLoaded", function () {
             <span>${member.name}</span>
             <div class="member-status">
                 <span class="status-indicator ${member.status}"></span>
-                <span>${member.status.charAt(0).toUpperCase() + member.status.slice(1)}</span>
             </div>
         `;
         groupChatMembersList.appendChild(memberElement);
