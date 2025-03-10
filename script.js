@@ -461,7 +461,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (breakTimeBtn.textContent === 'Break Time') {
             console.log('Taking a break...');
             userStatus.textContent = 'Break Time';
-            statusIndicator.style.backgroundColor = 'red';
+            statusIndicator.style.backgroundColor = 'grey';
             addLogEntry('Break Time');
             breakTimeBtn.textContent = 'End Break';
         } else {
@@ -600,6 +600,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    
     // Handle message sending
     const sendMessageBtn = document.querySelector('.send-message-btn');
     const messageInput = document.querySelector('.message-input');

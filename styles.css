@@ -2137,6 +2137,10 @@ body {
     background-color: #dc3545;
 }
 
+.status-indicator.break-time {
+    background-color: #6c757d;
+}
+
 /* Messages section styles */
 .messages-container {
     display: flex;
