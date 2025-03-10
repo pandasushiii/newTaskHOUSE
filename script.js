@@ -40,18 +40,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Handle "View Completed Tasks" button
     const viewCompletedBtn = document.querySelector('.view-completed-btn');
-    const completedTasks = document.querySelector('.completed-tasks');
-    const taskTableContainer = document.querySelector('.task-table-container');
+    const viewCompletedTasksModal = document.getElementById('viewCompletedTasksModal');
+    const closeCompletedTasksBtn = viewCompletedTasksModal.querySelector('.close-modal');
 
     viewCompletedBtn.addEventListener('click', () => {
-        if (completedTasks.style.display === "none") {
-            completedTasks.style.display = "block";
-            taskTableContainer.style.display = "none";
-            viewCompletedBtn.textContent = "View Pending Tasks";
-        } else {
-            completedTasks.style.display = "none";
-            taskTableContainer.style.display = "block";
-            viewCompletedBtn.textContent = "View Completed Tasks";
+        viewCompletedTasksModal.classList.add('show');
+    });
+
+    closeCompletedTasksBtn.addEventListener('click', () => {
+        viewCompletedTasksModal.classList.remove('show');
+    });
+
+    // Close on outside click
+    viewCompletedTasksModal.addEventListener('click', (e) => {
+        if (e.target === viewCompletedTasksModal) {
+            viewCompletedTasksModal.classList.remove('show');
         }
     });
 

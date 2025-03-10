@@ -2308,3 +2308,120 @@ body {
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
+
+/* Common table container styles */
+.table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Common table styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.table th,
+.table td {
+    padding: 12px 8px;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.table th {
+    background-color: #1d4e89;
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.table td:first-child {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-align: left;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+
+/* Hover effects */
+.table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.table tbody tr:hover td:first-child {
+    background-color: #eef2f7;
+}
+
+/* Update total column styling */
+.table td.total {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #1d4e89;
+}
+
+/* Update weekend cell styling */
+.table td.weekend {
+    background-color: #f8f9fa;
+    color: #999;
+}
+
+/* Make the total header match other headers */
+.table th:last-child {
+    background-color: #1d4e89;
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    right: 0;
+    z-index: 2;
+}
+
+/* Make the total column sticky */
+.table td:last-child {
+    position: sticky;
+    right: 0;
+    background-color: #f8f9fa;
+    z-index: 1;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure first column stays above others */
+.table td:first-child {
+    z-index: 3;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .table th,
+    .table td {
+        padding: 8px 6px;
+        font-size: 13px;
+    }
+}
+
+/* Apply the common table styles to specific tables */
+.task-table-container,
+.va-table-container,
+.logs-table-container,
+.schedule-table-container,
+.thirteenth-month-table-container,
+.performance-table-container,
+.payroll-table-container {
+    composes: table-container;
+}
+
+.task-table,
+.va-table,
+.logs-table,
+.schedule-table,
+.thirteenth-month-table,
+.performance-table,
+.payroll-table {
+    composes: table;
+}
