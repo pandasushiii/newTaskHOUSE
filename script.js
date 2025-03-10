@@ -580,6 +580,49 @@ document.addEventListener("DOMContentLoaded", function () {
             thirteenthMonthModal.classList.remove('show');
         }
     });
+
+    // Handle group chat modal
+    const groupChatBtn = document.querySelector('.group-chat-btn');
+    const groupChatModal = document.getElementById('groupChatModal');
+    const groupChatCloseBtn = groupChatModal.querySelector('.close-modal');
+
+    groupChatBtn.addEventListener('click', () => {
+        groupChatModal.classList.add('show');
+    });
+
+    groupChatCloseBtn.addEventListener('click', () => {
+        groupChatModal.classList.remove('show');
+    });
+
+    groupChatModal.addEventListener('click', (e) => {
+        if (e.target === groupChatModal) {
+            groupChatModal.classList.remove('show');
+        }
+    });
+
+    // Handle message sending
+    const sendMessageBtn = document.querySelector('.send-message-btn');
+    const messageInput = document.querySelector('.message-input');
+    const messageText = document.querySelector('.message-text');
+
+    sendMessageBtn.addEventListener('click', () => {
+        const message = messageInput.value.trim();
+        if (message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.innerHTML = `<p><strong>You:</strong> ${message}</p>`;
+            messageText.appendChild(messageElement);
+            messageInput.value = '';
+            messageText.scrollTop = messageText.scrollHeight; // Scroll to bottom
+        }
+    });
+
+    // Handle file insertion (dummy functionality)
+    const insertFileBtn = document.querySelector('.insert-file-btn');
+
+    insertFileBtn.addEventListener('click', () => {
+        alert('File insertion functionality is not implemented yet.');
+    });
 });
 
 // Add this to your existing script.js

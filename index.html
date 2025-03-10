@@ -597,6 +597,56 @@
                 <h2>Code of Conduct</h2>
                 <p>Code of Conduct content goes here.</p>
             </div>
+            <div class="card" id="messages" style="display: none;">
+                <h2>Messages</h2>
+                <div class="messages-container">
+                    <div class="messages-header">
+                        <button class="group-chat-btn">
+                            <img src="Icons/group.png" alt="Group Chat" class="group-chat-icon">
+                        </button>
+                    </div>
+                    <div class="messages-content">
+                        <!-- Message text area -->
+                        <div class="message-text">
+                            <!-- Example messages -->
+                            <div class="message">
+                                <p><strong>John Doe:</strong> Hello, team!</p>
+                            </div>
+                            <div class="message">
+                                <p><strong>Jane Smith:</strong> Hi John!</p>
+                            </div>
+                            <!-- Add more messages as needed -->
+                        </div>
+                        <!-- Message input area -->
+                        <div class="message-input-container">
+                            <button class="insert-file-btn">
+                                <img src="Icons/insert.png" alt="Insert File" class="insert-file-icon">
+                            </button>
+                            <input type="text" class="message-input" placeholder="Type your message...">
+                            <button class="send-message-btn">
+                                <img src="Icons/send.png" alt="Send Message" class="send-message-icon">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" id="groupChatModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Group Chat Members</h3>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="group-chat-members">
+                                <!-- Example members -->
+                                <li>John Doe</li>
+                                <li>Jane Smith</li>
+                                <li>Mike Johnson</li>
+                                <!-- Add more members as needed -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
