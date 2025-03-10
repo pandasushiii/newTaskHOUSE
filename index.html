@@ -366,8 +366,7 @@
                         <div class="performance-grid">
                             <div class="performance-card">
                                 <h4>Average Productivity</h4>
-                                <p class="percentage">87%</p>
-                                <div class="progress-bar">
+                                <p class="percentage">87%</                                <div class="progress-bar">
                                     <div class="progress" style="width: 87%"></div>
                                 </div>
                             </div>
@@ -407,23 +406,48 @@
             <div class="card" id="memos" style="display: none;">
                 <h2>Memos</h2>
                 
-                <!-- Memo Card -->
-                <div class="memo-card">
-                    <div class="memo-header">
-                        <h3 class="memo-subject">Company Holiday Schedule Update</h3>
-                        <span class="memo-date">March 15, 2024</span>
+                <!-- Memo Titles -->
+                <div class="memo-titles">
+                    <button class="memo-title-btn" data-memo="memo1">Company Holiday Schedule Update</button>
+                    <button class="memo-title-btn" data-memo="memo2">New Office Policies</button>
+                </div>
+                
+                <!-- Memo Contents -->
+                <div class="memo-contents">
+                    <div class="memo-content" id="memo1">
+                        <div class="memo-header">
+                            <h3 class="memo-subject">Company Holiday Schedule Update</h3>
+                            <span class="memo-date">March 15, 2024</span>
+                        </div>
+                        <div class="memo-body">
+                            <p>Dear Valued Employees,</p>
+                            <p>We would like to inform everyone about the upcoming holiday schedule adjustments for the second quarter of 2024. Please take note of the following dates:</p>
+                            <ul>
+                                <li>April 10 - Regular Holiday</li>
+                                <li>May 1 - Labor Day</li>
+                                <li>June 12 - Independence Day</li>
+                            </ul>
+                            <p>For employees working during these holidays, the standard holiday premium rates will apply. Please coordinate with your immediate supervisor regarding any schedule adjustments.</p>
+                            <p>Thank you for your attention to this matter.</p>
+                            <p class="memo-signature">Best regards,<br>HR Department</p>
+                        </div>
                     </div>
-                    <div class="memo-content">
-                        <p>Dear Valued Employees,</p>
-                        <p>We would like to inform everyone about the upcoming holiday schedule adjustments for the second quarter of 2024. Please take note of the following dates:</p>
-                        <ul>
-                            <li>April 10 - Regular Holiday</li>
-                            <li>May 1 - Labor Day</li>
-                            <li>June 12 - Independence Day</li>
-                        </ul>
-                        <p>For employees working during these holidays, the standard holiday premium rates will apply. Please coordinate with your immediate supervisor regarding any schedule adjustments.</p>
-                        <p>Thank you for your attention to this matter.</p>
-                        <p class="memo-signature">Best regards,<br>HR Department</p>
+                    <div class="memo-content" id="memo2" style="display: none;">
+                        <div class="memo-header">
+                            <h3 class="memo-subject">New Office Policies</h3>
+                            <span class="memo-date">March 20, 2024</span>
+                        </div>
+                        <div class="memo-body">
+                            <p>Dear Team,</p>
+                            <p>We are implementing new office policies effective immediately. Please review the following changes:</p>
+                            <ul>
+                                <li>Office hours are now from 8:00 AM to 5:00 PM.</li>
+                                <li>Remote work is allowed on Fridays.</li>
+                                <li>All meetings must be scheduled at least 24 hours in advance.</li>
+                            </ul>
+                            <p>Thank you for your cooperation.</p>
+                            <p class="memo-signature">Sincerely,<br>Management</p>
+                        </div>
                     </div>
                 </div>
             </div>

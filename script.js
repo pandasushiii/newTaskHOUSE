@@ -548,6 +548,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update date and time every second
     setInterval(updateDateTime, 1000);
     updateDateTime(); // Initial call to set the date and time immediately
+
+    // Handle memo title click
+    const memoTitleButtons = document.querySelectorAll('.memo-title-btn');
+    const memoContents = document.querySelectorAll('.memo-content');
+
+    memoTitleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const memoId = button.getAttribute('data-memo');
+            memoContents.forEach(content => {
+                content.style.display = content.id === memoId ? 'block' : 'none';
+            });
+        });
+    });
 });
 
 // Add this to your existing script.js

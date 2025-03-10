@@ -1839,3 +1839,40 @@ body {
 .clock-out-btn:hover {
     background-color: #236778;
 }
+
+/* Memo styles */
+.memo-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.memo-title-btn {
+    background-color: #2a7a8c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.2s;
+}
+
+.memo-title-btn:hover {
+    background-color: #236778;
+}
+
+.memo-contents {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.memo-content {
+    display: none;
+}
+
+.memo-content.active {
+    display: block;
+}
