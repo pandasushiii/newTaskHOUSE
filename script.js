@@ -678,6 +678,40 @@ document.addEventListener("DOMContentLoaded", function () {
         // Show the Messages section
         messagesCard.style.display = "block";
     });
+
+    // Handle "Edit Profile" button
+    const editProfileBtn = document.querySelector('.user-dropdown-item[href="#edit-profile"]');
+    const editProfileModal = document.getElementById('editProfileModal');
+    const closeEditProfileBtn = editProfileModal.querySelector('.close-modal');
+    const editProfileForm = document.querySelector('.edit-profile-form');
+    const cancelEditProfileBtn = editProfileModal.querySelector('.cancel-btn');
+
+    editProfileBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        editProfileModal.classList.add('show');
+    });
+
+    closeEditProfileBtn.addEventListener('click', () => {
+        editProfileModal.classList.remove('show');
+    });
+
+    cancelEditProfileBtn.addEventListener('click', () => {
+        editProfileModal.classList.remove('show');
+    });
+
+    // Close on outside click
+    editProfileModal.addEventListener('click', (e) => {
+        if (e.target === editProfileModal) {
+            editProfileModal.classList.remove('show');
+        }
+    });
+
+    // Handle form submission
+    editProfileForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Add your form submission logic here
+        editProfileModal.classList.remove('show');
+    });
 });
 
 // Add this to your existing script.js
