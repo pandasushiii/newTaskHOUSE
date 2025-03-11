@@ -680,7 +680,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Handle "Edit Profile" button
-    const editProfileBtn = document.querySelector('.user-dropdown-item[href="#edit-profile"]');
+    const editProfileBtn = document.querySelector('.user-dropdown-item[href="#editProfileModal"]');
     const editProfileModal = document.getElementById('editProfileModal');
     const closeEditProfileBtn = editProfileModal.querySelector('.close-modal');
     const editProfileForm = document.querySelector('.edit-profile-form');
