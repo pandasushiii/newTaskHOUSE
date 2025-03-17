@@ -58,6 +58,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Handle "Approval Task" button
+    const viewApprovalBtn = document.querySelector('.view-approval-btn');
+    const viewApprovalTasksModal = document.getElementById('viewApprovalTasksModal');
+    const closeApprovalTasksBtn = viewApprovalTasksModal.querySelector('.close-modal');
+
+    viewApprovalBtn.addEventListener('click', () => {
+        viewApprovalTasksModal.classList.add('show');
+    });
+
+    closeApprovalTasksBtn.addEventListener('click', () => {
+        viewApprovalTasksModal.classList.remove('show');
+    });
+
+    // Close on outside click
+    viewApprovalTasksModal.addEventListener('click', (e) => {
+        if (e.target === viewApprovalTasksModal) {
+            viewApprovalTasksModal.classList.remove('show');
+        }
+    });
+
     // Handle dropdowns
     dropdowns.forEach(dropdown => {
         const span = dropdown.querySelector('span');

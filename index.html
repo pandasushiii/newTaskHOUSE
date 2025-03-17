@@ -161,9 +161,9 @@
                         <img src="Icons/tasks.png" alt="Tasks" class="header-task-icon">
                         <h2>My Tasks</h2>
                     </div>
-                    <button class="view-completed-btn">
-                        <img src="Icons/taskreport.png" class="task-icon" alt="Completed">
-                        View Completed Tasks
+                    <button class="view-approval-btn">
+                        <img src="Icons/taskreport.png" class="task-icon" alt="Approval">
+                        Approval Task
                         <span class="task-counter">12</span>
                     </button>
                     <button class="add-task-card-btn">
@@ -848,6 +848,43 @@
                             <th>Project Name</th>
                             <th>Task Description</th>
                             <th>Completion Date</th>
+                            <th>Approver</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Website Redesign</td>
+                            <td>Update homepage layout</td>
+                            <td>2024-03-10</td>
+                            <td>John Smith</td>
+                        </tr>
+                        <tr>
+                            <td>Content Management</td>
+                            <td>Create blog posts</td>
+                            <td>2024-03-12</td>
+                            <td>Sarah Johnson</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Approval Task Modal -->
+    <div class="modal" id="viewApprovalTasksModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Approval Tasks</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="approval-tasks">
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th>Project Name</th>
+                            <th>Task Description</th>
+                            <th>Approval Date</th>
                             <th>Approver</th>
                         </tr>
                     </thead>
