@@ -774,7 +774,7 @@
                         <tr>
                             <th>Date</th>
                             <th>Time</th>
-                            <th>Status</th>
+                            <th>Status</h>
                         </tr>
                     </thead>
                     <tbody id="logsTableBody">
@@ -937,6 +937,70 @@
                     <button type="button" class="cancel-btn">Cancel</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Group Chat Modal -->
+    <div class="modal" id="groupChatModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Group Chat Members</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul class="group-chat-members">
+                    <!-- Example members -->
+                    <li>
+                        <span>John Doe</span>
+                        <div class="member-status">
+                            <span class="status-indicator online"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Jane Smith</span>
+                        <div class="member-status">
+                            <span class="status-indicator offline"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Mike Johnson</span>
+                        <div class="member-status">
+                            <span class="status-indicator break-time"></span>
+                        </div>
+                    </li>
+                    <!-- Add more members as needed -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thirteenth Month Pay Modal -->
+    <div class="modal" id="thirteenthMonthModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>13th Month Pay</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <table class="thirteenth-month-table">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example rows -->
+                    <tr>
+                        <td>January</td>
+                        <td>$1000</td>
+                    </tr>
+                    <tr>
+                        <td>February</td>
+                        <td>$1000</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
