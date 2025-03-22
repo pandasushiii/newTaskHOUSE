@@ -85,7 +85,7 @@ body {
 
 .profile p {
     font-weight: bold;
-    font-size: 15px;
+    font-size: 18px; /* Increased font size from 15px to 18px */
     margin: 0;
     text-align: center;
     width: 100%;  /* Ensure full width */
@@ -116,34 +116,34 @@ body {
     transform: scale(1.1);
 }
 
+/* Edit Profile Image Button */
+.edit-profile-image-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.edit-profile-image-btn:hover {
+    transform: scale(1.1);
+}
+
+.edit-profile-icon {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) invert(0.5); /* Adjust icon color */
+}
+
 /* Menu and dropdown styles */
 .menu {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
-.menu > li:not(.dropdown),
-.dropdown-toggle,
-.submenu li {
-    display: flex;
-    align-items: center;
-    padding: 8px 12px 8px 32px;
-    gap: 10px;
-    border-radius: 8px;  /* Add rounded corners */
-    transition: all 0.2s ease;
-    cursor: pointer;
-    margin: 2px 8px;  /* Add margin for better visual spacing */
-}
-
-.dropdown {
-    position: relative;
-    width: 100%;
-}
-
-.dropdown-toggle {
-    display: flex !important;
-    align-items: center;
     width: 100%;
     padding: 8px 12px 8px 32px;  /* Match other items */
     color: white;
