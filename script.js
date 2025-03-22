@@ -133,20 +133,66 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Add this to your existing script.js
+    // Handle User Info dropdown toggle
     const userProfileBtn = document.querySelector('.user-profile-btn');
     const userDropdown = document.querySelector('.user-dropdown');
 
     userProfileBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        userDropdown.classList.toggle('hidden'); // Fix: Use 'hidden' class to toggle visibility
+        userDropdown.classList.toggle('hidden'); // Toggle dropdown visibility
     });
 
-    // Close dropdown when clicking outside
+    // Close User Info dropdown when clicking outside
     document.addEventListener('click', (e) => {
         if (!userDropdown.contains(e.target) && !userProfileBtn.contains(e.target)) {
-            userDropdown.classList.add('hidden'); // Fix: Ensure dropdown is hidden
+            userDropdown.classList.add('hidden'); // Ensure dropdown is hidden
         }
+    });
+
+    // Handle modals
+    function setupModal(modalId, triggerSelector, closeSelector) {
+        const modal = document.getElementById(modalId);
+        const trigger = document.querySelector(triggerSelector);
+        const closeBtn = modal.querySelector(closeSelector);
+
+        trigger.addEventListener('click', () => {
+            modal.classList.add('show'); // Show modal
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('show'); // Hide modal
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+    }
+
+    // Setup modals
+    setupModal('editProfileModal', '.user-dropdown-item[href="#editProfileModal"]', '.close-modal');
+    setupModal('viewCompletedTasksModal', '.view-completed-btn', '.close-modal');
+    setupModal('addTaskModal', '.add-task-card-btn', '.close-modal');
+    setupModal('attendance', '.clock-btn', '.close-modal');
+    setupModal('thirteenthMonthModal', '.thirteenth-month-btn', '.close-modal');
+    setupModal('groupChatModal', '.group-chat-btn', '.close-modal');
+
+    // Handle dropdowns in the sidebar
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const submenu = toggle.nextElementSibling;
+            submenu.classList.toggle('hidden'); // Toggle submenu visibility
+        });
+    });
+
+    // Close all dropdowns when clicking outside
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.submenu').forEach(submenu => {
+            submenu.classList.add('hidden'); // Hide all submenus
+        });
     });
 
     // Handle dropdown items
