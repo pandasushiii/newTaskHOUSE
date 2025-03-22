@@ -178,4 +178,37 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
         groupChatMembers.appendChild(memberItem);
     });
+
+    // Handle Messages Modal
+    setupModal('messagesModal', '.message-btn');
+
+    // Send message functionality
+    const messageInput = document.getElementById('messageInput');
+    const sendMessageBtn = document.getElementById('sendMessageBtn');
+    const messageTextContainer = document.querySelector('.message-text');
+
+    sendMessageBtn.addEventListener('click', () => {
+        const message = messageInput.value.trim();
+        if (message) {
+            // Add the user's message to the chat
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'user-message');
+            userMessage.innerHTML = `<p><strong>You:</strong> ${message}</p>`;
+            messageTextContainer.appendChild(userMessage);
+
+            // Clear the input field
+            messageInput.value = '';
+
+            // Simulate a response from another member
+            setTimeout(() => {
+                const otherMessage = document.createElement('div');
+                otherMessage.classList.add('message', 'other-message');
+                otherMessage.innerHTML = `<p><strong>John Doe:</strong> Got it!</p>`;
+                messageTextContainer.appendChild(otherMessage);
+
+                // Scroll to the latest message
+                messageTextContainer.scrollTop = messageTextContainer.scrollHeight;
+            }, 1000);
+        }
+    });
 });
