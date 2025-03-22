@@ -148,6 +148,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const taskDescription = document.getElementById('taskDescription').value;
         const hours = document.getElementById('hours').value;
         const minutes = document.getElementById('minutes').value;
+        const priorityLevel = document.getElementById('priorityLevel').value;
+        const status = document.getElementById('status').value;
 
         // Create a new row for the task table
         const newRow = document.createElement('tr');
@@ -155,8 +157,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <td>${projectName}</td>
             <td>${taskDescription}</td>
             <td>${new Date().toISOString().split('T')[0]}</td>
-            <td><span class="priority medium">Medium</span></td>
-            <td><span class="status pending">Pending</span></td>
+            <td><span class="priority ${priorityLevel}">${priorityLevel.charAt(0).toUpperCase() + priorityLevel.slice(1)}</span></td>
+            <td><span class="status ${status}">${status.charAt(0).toUpperCase() + status.slice(1)}</span></td>
             <td>${approverName}</td>
         `;
 
