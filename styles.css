@@ -482,10 +482,11 @@ body {
 .header-controls {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-right: 40px;
-    height: 40px;
+    gap: 20px; /* Increased gap for better spacing */
+    margin-right: 20px; /* Reduced margin for better alignment */
+    height: 50px; /* Match header height */
     position: relative;
+    justify-content: flex-end; /* Align items to the right */
 }
 
 /* Update common button styles for header buttons */
@@ -495,21 +496,20 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 3px; /* Reduced padding further to accommodate larger icons */
+    padding: 5px; /* Adjusted padding for better alignment */
     border-radius: 50%;
     transition: background-color 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    height: 38px; /* Increased height */
-    width: 38px; /* Increased width */
+    height: 40px; /* Adjusted height */
+    width: 40px; /* Adjusted width */
 }
 
 /* Update header icons size */
 .header-icon {
-    width: 28px; /* Increased size */
-    height: 28px; /* Increased size */
+    width: 24px; /* Adjusted size for better visibility */
+    height: 24px;
     filter: brightness(0) invert(1);
 }
 
@@ -528,6 +528,9 @@ body {
 
 /* User dropdown styles */
 .user-profile-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Increased gap for better spacing */
     position: relative;
     margin-right: 10px;  /* Reduced from 20px */
 }
@@ -809,6 +812,32 @@ body {
 .sidebar.collapsed .submenu li {
     justify-content: center;
     padding: 8px;
+}
+
+.sidebar.collapsed .menu > li:not(.dropdown),
+.sidebar.collapsed .dropdown-toggle,
+.sidebar.collapsed .submenu li {
+    justify-content: center; /* Center icons */
+    padding: 8px; /* Adjust padding for better alignment */
+    display: flex;
+    flex-direction: column; /* Stack icons and text vertically */
+    align-items: center; /* Center align items */
+    gap: 5px; /* Add spacing between icon and text */
+}
+
+.sidebar.collapsed .menu-icon {
+    width: 32px; /* Increased size for better visibility */
+    height: 32px;
+    margin: 0 auto; /* Center the icon */
+}
+
+.sidebar.collapsed .menu-text {
+    font-size: 10px; /* Smaller font size for collapsed state */
+    text-align: center; /* Center align text */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    max-width: 40px; /* Limit text width */
 }
 
 /* Style for dropdown arrow */
