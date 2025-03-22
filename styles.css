@@ -85,7 +85,7 @@ body {
 
 .profile p {
     font-weight: bold;
-    font-size: 18px; /* Increased font size from 15px to 18px */
+    font-size: 20px; /* Increased font size from 18px to 20px */
     margin: 0;
     text-align: center;
     width: 100%;  /* Ensure full width */
@@ -776,9 +776,8 @@ body {
     padding: 0 2px;
 }
 
-/* Keep profile name visible but adjust its style */
 .sidebar.collapsed .profile p {
-    font-size: 10px;  /* Smaller font size */
+    font-size: 14px;  /* Increased font size for better readability */
     white-space: nowrap;  /* Prevent text wrapping */
     overflow: hidden;
     text-overflow: ellipsis;  /* Add ellipsis for long names */
@@ -789,8 +788,8 @@ body {
 
 /* Adjust profile image size */
 .sidebar.collapsed .profile-icon {
-    width: 32px;  /* Smaller image */
-    height: 32px;
+    width: 40px;  /* Adjusted size for better alignment */
+    height: 40px;
 }
 
 .sidebar.collapsed .profile {
@@ -849,7 +848,6 @@ body {
 .sidebar.collapsed .menu-icon {
     width: 20px;
     height: 20px;
-    margin-right: 0;
     visibility: visible !important;
     display: block !important;
 }
