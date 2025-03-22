@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     userProfileBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        userDropdown.classList.toggle('hidden'); // Toggle dropdown visibility
+        userDropdown.classList.toggle('show'); // Toggle dropdown visibility
     });
 
     // Close User Info dropdown when clicking outside
@@ -155,7 +155,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const trigger = document.querySelector(triggerSelector);
         const closeBtn = modal.querySelector(closeSelector);
 
-        trigger.addEventListener('click', () => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
             modal.classList.add('show'); // Show modal
         });
 
