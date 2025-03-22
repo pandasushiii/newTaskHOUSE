@@ -146,15 +146,10 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('addTaskModal').classList.remove('show');
     });
 
-    // Populate Group Chat Members with an example
+    // Populate Group Chat Members with the provided members array
     function populateGroupChatMembers() {
         groupChatMembersList.innerHTML = ''; // Clear existing members
-        const exampleMembers = [
-            { name: 'John Doe', status: 'online' },
-            { name: 'Jane Smith', status: 'offline' },
-            { name: 'Mike Johnson', status: 'break-time' },
-        ];
-        exampleMembers.forEach(member => {
+        members.forEach(member => {
             const memberItem = document.createElement('li');
             memberItem.innerHTML = `
                 <span>${member.name}</span>
@@ -169,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const viewGroupChatMembersBtn = document.getElementById('viewGroupChatMembersBtn');
     viewGroupChatMembersBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        populateGroupChatMembers(); // Populate with example members
+        populateGroupChatMembers(); // Populate with the `members` array
         groupChatDropdown.classList.toggle('show');
     });
 
