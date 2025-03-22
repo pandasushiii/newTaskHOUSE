@@ -80,12 +80,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Handle modals
     function setupModal(modalId, triggerSelector) {
         const modal = document.getElementById(modalId);
-        const trigger = document.querySelector(triggerSelector);
+        const triggers = document.querySelectorAll(triggerSelector);
         const closeBtn = modal.querySelector('.close-modal');
 
-        trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            modal.classList.add('show');
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('show');
+            });
         });
 
         closeBtn.addEventListener('click', () => modal.classList.remove('show'));
