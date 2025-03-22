@@ -133,4 +133,45 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     setInterval(updateDateTime, 1000);
     updateDateTime();
+
+    // Handle Add Task form submission
+    const addTaskForm = document.getElementById('addTaskForm');
+    const taskTableBody = document.querySelector('.task-table tbody');
+    const addTaskModal = document.getElementById('addTaskModal');
+
+    addTaskForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Get form values
+        const projectName = document.getElementById('projectName').value;
+        const approverName = document.getElementById('approverName').value;
+        const taskDescription = document.getElementById('taskDescription').value;
+        const hours = document.getElementById('hours').value;
+        const minutes = document.getElementById('minutes').value;
+
+        // Create a new row for the task table
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${projectName}</td>
+            <td>${taskDescription}</td>
+            <td>${new Date().toISOString().split('T')[0]}</td>
+            <td><span class="priority medium">Medium</span></td>
+            <td><span class="status pending">Pending</span></td>
+            <td>${approverName}</td>
+        `;
+
+        // Append the new row to the task table
+        taskTableBody.appendChild(newRow);
+
+        // Reset the form and close the modal
+        addTaskForm.reset();
+        addTaskModal.classList.remove('show');
+    });
+
+    // Handle Cancel button in Add Task modal
+    const cancelBtn = addTaskForm.querySelector('.cancel-btn');
+    cancelBtn.addEventListener('click', () => {
+        addTaskForm.reset();
+        addTaskModal.classList.remove('show');
+    });
 });

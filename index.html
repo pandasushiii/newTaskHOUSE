@@ -797,27 +797,18 @@
                 <h3>Add New Task</h3>
                 <button class="close-modal">&times;</button>
             </div>
-            <form class="task-form">
+            <form id="addTaskForm" class="task-form">
                 <div class="form-group">
                     <label for="projectName">Project Name</label>
-                    <input type="text" id="projectName" required>
+                    <input type="text" id="projectName" placeholder="Enter project name" required>
                 </div>
                 <div class="form-group">
-                    <label for="approverName">Approver's Name</label>
-                    <input type="text" id="approverName" required>
+                    <label for="approverName">Task Approver</label>
+                    <input type="text" id="approverName" placeholder="Enter approver's name" required>
                 </div>
                 <div class="form-group">
                     <label for="taskDescription">Task Description</label>
-                    <textarea id="taskDescription" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="priorityLevel">Priority Level</label>
-                    <select id="priorityLevel" class="priority-select" required>
-                        <option value="">Select Priority</option>
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
-                    </select>
+                    <textarea id="taskDescription" rows="4" placeholder="Enter task description" required></textarea>
                 </div>
                 <div class="form-group billed-hours">
                     <label>Billed Hours</label>
