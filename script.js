@@ -26,9 +26,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Handle dropdowns
     dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
+        const submenu = dropdown.querySelector('.submenu');
+
         toggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            dropdown.querySelector('.submenu').classList.toggle('hidden');
+            submenu.classList.toggle('hidden');
+        });
+
+        // Prevent dropdown from closing when clicking inside the submenu
+        submenu.addEventListener('click', (e) => {
+            e.stopPropagation();
         });
     });
 
