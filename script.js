@@ -230,4 +230,16 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
         groupChatMembers.appendChild(memberItem);
     });
+
+    // Handle Group Chat Members modal to appear in front of Messages modal
+    setupModal('groupChatModal', '.group-chat-btn');
+
+    // Ensure Group Chat Members modal is in front of Messages modal
+    const groupChatModal = document.getElementById('groupChatModal');
+    const messagesModal = document.getElementById('messagesModal');
+
+    document.querySelector('.group-chat-btn').addEventListener('click', () => {
+        groupChatModal.style.zIndex = '1100'; // Bring Group Chat modal to the front
+        messagesModal.style.zIndex = '1000'; // Push Messages modal to the back
+    });
 });

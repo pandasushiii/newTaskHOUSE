@@ -1313,6 +1313,30 @@ body {
     z-index: 1001; /* Ensure it stays above other content */
 }
 
+/* Adjust Messages modal size */
+.messages-modal-content {
+    width: 700px; /* Increased width */
+    height: 600px; /* Increased height */
+    max-height: 90%; /* Ensure it fits within the viewport */
+}
+
+/* Adjust Group Chat Members modal to appear in front */
+.group-chat-modal-content {
+    z-index: 1100; /* Higher than the Messages modal */
+    width: 400px; /* Adjust width */
+    max-height: 80%; /* Ensure it fits within the viewport */
+    overflow-y: auto; /* Add scrolling if content is too long */
+}
+
+/* Ensure modal stacking order */
+.modal {
+    z-index: 1000; /* Default modal z-index */
+}
+
+.modal.show {
+    display: flex;
+}
+
 /* Form styles */
 .attendance-form {
     display: flex;

@@ -916,7 +916,7 @@
 
     <!-- Group Chat Modal -->
     <div class="modal" id="groupChatModal">
-        <div class="modal-content">
+        <div class="modal-content group-chat-modal-content">
             <div class="modal-header">
                 <h3>Group Chat Members</h3>
                 <button class="close-modal">&times;</button>
@@ -942,7 +942,7 @@
                             <span class="status-indicator break-time"></span>
                         </div>
                     </li>
-                    <!-- Add more members as needed -->
+                    <!-- Members will be dynamically added here -->
                 </ul>
             </div>
         </div>
@@ -980,14 +980,14 @@
 
     <!-- Messages Modal -->
     <div class="modal" id="messagesModal">
-        <div class="modal-content">
+        <div class="modal-content messages-modal-content">
             <div class="modal-header">
                 <h3>Messages</h3>
                 <button class="close-modal">&times;</button>
             </div>
             <div class="messages-container">
                 <div class="messages-header">
-                    <button class="group-chat-btn">
+                    <button class="group-chat-btn" data-modal="groupChatModal">
                         <img src="Icons/gcmembers.png" alt="Group Chat" class="group-chat-icon">
                         View Members
                     </button>
