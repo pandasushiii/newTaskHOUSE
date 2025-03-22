@@ -51,8 +51,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Close User Info dropdown when clicking outside
-    document.addEventListener('click', () => {
-        userDropdown.classList.remove('show');
+    document.addEventListener('click', (e) => {
+        if (!userDropdown.contains(e.target) && !userProfileBtn.contains(e.target)) {
+            userDropdown.classList.remove('show');
+        }
+    });
+
+    // Handle dropdown item clicks
+    document.querySelectorAll('.user-dropdown-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const action = e.currentTarget.textContent.trim();
+            switch(action) {
+                case 'Edit Profile':
+                    console.log('Editing profile...');
+                    break;
+                case 'Journal':
+                    console.log('Opening journal...');
+                    break;
+                case 'Log Out':
+                    console.log('Logging out...');
+                    break;
+            }
+            userDropdown.classList.remove('show');
+        });
     });
 
     // Handle modals
