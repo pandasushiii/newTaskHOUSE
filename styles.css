@@ -1320,12 +1320,17 @@ body {
     max-height: 90%; /* Ensure it fits within the viewport */
 }
 
-/* Adjust Group Chat Members modal to appear in front */
+/* Adjust Group Chat Members modal to ensure it is displayed correctly in front of the Messages modal and centered */
 .group-chat-modal-content {
     z-index: 1100; /* Higher than the Messages modal */
     width: 400px; /* Adjust width */
     max-height: 80%; /* Ensure it fits within the viewport */
     overflow-y: auto; /* Add scrolling if content is too long */
+    position: fixed; /* Ensure it stays in front */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the modal */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
 }
 
 /* Ensure modal stacking order */

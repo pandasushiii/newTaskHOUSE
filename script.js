@@ -244,7 +244,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Ensure Group Chat Members modal is in front of Messages modal
     document.querySelector('.group-chat-btn').addEventListener('click', () => {
+        const groupChatModal = document.getElementById('groupChatModal');
+        const messagesModal = document.getElementById('messagesModal');
+        
         groupChatModal.style.zIndex = '1100'; // Bring Group Chat modal to the front
         messagesModal.style.zIndex = '1000'; // Push Messages modal to the back
+
+        // Adjust position of Group Chat Members modal
+        groupChatModal.style.top = '50%';
+        groupChatModal.style.left = '50%';
+        groupChatModal.style.transform = 'translate(-50%, -50%)'; // Center the modal
+    });
+
+    // Ensure Group Chat Members modal hovers above the conversation display
+    document.querySelector('.group-chat-btn').addEventListener('click', () => {
+        const groupChatModal = document.getElementById('groupChatModal');
+        const messagesModalContent = document.querySelector('.messages-modal-content');
+
+        groupChatModal.style.zIndex = '1100'; // Bring Group Chat modal to the front
+        groupChatModal.style.position = 'absolute'; // Ensure it hovers
+        groupChatModal.style.top = `${messagesModalContent.offsetTop + 20}px`; // Position slightly below the header
+        groupChatModal.style.left = `${messagesModalContent.offsetLeft + 20}px`; // Align with the left of the messages modal
     });
 });
