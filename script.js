@@ -178,4 +178,57 @@ document.addEventListener("DOMContentLoaded", function () {
         addTaskForm.reset();
         addTaskModal.classList.remove('show');
     });
+
+    // Handle Messages functionality
+    const messageInput = document.getElementById('messageInput');
+    const sendMessageBtn = document.getElementById('sendMessageBtn');
+    const messageTextContainer = document.querySelector('.message-text');
+
+    // Send message functionality
+    sendMessageBtn.addEventListener('click', () => {
+        const message = messageInput.value.trim();
+        if (message) {
+            // Add the user's message to the chat
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'user-message');
+            userMessage.innerHTML = `<p><strong>You:</strong> ${message}</p>`;
+            messageTextContainer.appendChild(userMessage);
+
+            // Clear the input field
+            messageInput.value = '';
+
+            // Simulate a response from another member
+            setTimeout(() => {
+                const otherMessage = document.createElement('div');
+                otherMessage.classList.add('message', 'other-message');
+                otherMessage.innerHTML = `<p><strong>John Doe:</strong> Got it!</p>`;
+                messageTextContainer.appendChild(otherMessage);
+
+                // Scroll to the latest message
+                messageTextContainer.scrollTop = messageTextContainer.scrollHeight;
+            }, 1000);
+        }
+    });
+
+    // Handle Group Chat Members modal
+    setupModal('groupChatModal', '.group-chat-btn');
+
+    // Example: Dynamically add members to the chat members list
+    const groupChatMembers = document.querySelector('.group-chat-members');
+    const members = [
+        { name: 'John Doe', status: 'online' },
+        { name: 'Jane Smith', status: 'offline' },
+        { name: 'Mike Johnson', status: 'break-time' },
+    ];
+
+    members.forEach(member => {
+        const memberItem = document.createElement('li');
+        memberItem.innerHTML = `
+            <span>${member.name}</span>
+            <div class="member-status">
+                <span class="status-indicator ${member.status}"></span>
+            </div>
+        `;
+        groupChatMembers.appendChild(memberItem);
+    });
 });

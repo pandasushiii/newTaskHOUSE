@@ -631,30 +631,29 @@
                 <h2>Messages</h2>
                 <div class="messages-container">
                     <div class="messages-header">
-                        <button class="group-chat-btn">
-                            <img src="gcmembers.png" alt="Group Chat" class="group-chat-icon">
+                        <button class="group-chat-btn" data-modal="groupChatModal">
+                            <img src="Icons/gcmembers.png" alt="Group Chat" class="group-chat-icon">
+                            View Members
                         </button>
                     </div>
                     <div class="messages-content">
-                        <!-- Message text area -->
                         <div class="message-text">
                             <!-- Example messages -->
                             <div class="message other-message">
                                 <p><strong>John Doe:</strong> Hello, team!</p>
                             </div>
-                            <div class="message other-message">
-                                <p><strong>Jane Smith:</strong> Hi John!</p>
+                            <div class="message user-message">
+                                <p><strong>You:</strong> Hi John!</p>
                             </div>
-                            <!-- Add more messages as needed -->
+                            <!-- Messages will be dynamically added here -->
                         </div>
-                        <!-- Message input area -->
                         <div class="message-input-container">
                             <button class="insert-file-btn">
-                                <img src="insertclip.png" alt="Insert File" class="insert-file-icon">
+                                <img src="Icons/insertclip.png" alt="Insert File" class="insert-file-icon">
                             </button>
-                            <input type="text" class="message-input" placeholder="Type your message...">
-                            <button class="send-message-btn">
-                                <img src="send.png" alt="Send Message" class="send-message-icon">
+                            <input type="text" class="message-input" placeholder="Type your message..." id="messageInput">
+                            <button class="send-message-btn" id="sendMessageBtn">
+                                <img src="Icons/send.png" alt="Send Message" class="send-message-icon">
                             </button>
                         </div>
                     </div>
@@ -686,7 +685,7 @@
                                         <span class="status-indicator break-time"></span>
                                     </div>
                                 </li>
-                                <!-- Add more members as needed -->
+                                <!-- Members will be dynamically added here -->
                             </ul>
                         </div>
                     </div>
