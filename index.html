@@ -631,10 +631,33 @@
                 <h2>Messages</h2>
                 <div class="messages-container">
                     <div class="messages-header">
-                        <button class="group-chat-btn" data-modal="groupChatModal">
+                        <button class="group-chat-btn" data-tooltip="View Members">
                             <img src="Icons/gcmembers.png" alt="Group Chat" class="group-chat-icon">
                             View Members
                         </button>
+                        <div class="group-chat-dropdown hidden">
+                            <ul class="group-chat-members">
+                                <!-- Example members -->
+                                <li>
+                                    <span>John Doe</span>
+                                    <div class="member-status">
+                                        <span class="status-indicator online"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>Jane Smith</span>
+                                    <div class="member-status">
+                                        <span class="status-indicator offline"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>Mike Johnson</span>
+                                    <div class="member-status">
+                                        <span class="status-indicator break-time"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="messages-content">
                         <div class="message-text">

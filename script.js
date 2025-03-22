@@ -266,4 +266,37 @@ document.addEventListener("DOMContentLoaded", function () {
         groupChatModal.style.top = `${messagesModalContent.offsetTop + 20}px`; // Position slightly below the header
         groupChatModal.style.left = `${messagesModalContent.offsetLeft + 20}px`; // Align with the left of the messages modal
     });
+
+    // Handle Group Chat Dropdown
+    const groupChatBtn = document.querySelector('.group-chat-btn');
+    const groupChatDropdown = document.querySelector('.group-chat-dropdown');
+
+    groupChatBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        groupChatDropdown.classList.toggle('show'); // Toggle dropdown visibility
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', () => {
+        groupChatDropdown.classList.remove('show');
+    });
+
+    // Dynamically populate members in the dropdown
+    const groupChatMembers = document.querySelector('.group-chat-members');
+    const members = [
+        { name: 'John Doe', status: 'online' },
+        { name: 'Jane Smith', status: 'offline' },
+        { name: 'Mike Johnson', status: 'break-time' },
+    ];
+
+    members.forEach(member => {
+        const memberItem = document.createElement('li');
+        memberItem.innerHTML = `
+            <span>${member.name}</span>
+            <div class="member-status">
+                <span class="status-indicator ${member.status}"></span>
+            </div>
+        `;
+        groupChatMembers.appendChild(memberItem);
+    });
 });
