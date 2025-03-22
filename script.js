@@ -139,13 +139,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     userProfileBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        userDropdown.classList.toggle('show');
+        userDropdown.classList.toggle('hidden'); // Fix: Use 'hidden' class to toggle visibility
     });
 
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
         if (!userDropdown.contains(e.target) && !userProfileBtn.contains(e.target)) {
-            userDropdown.classList.remove('show');
+            userDropdown.classList.add('hidden'); // Fix: Ensure dropdown is hidden
         }
     });
 
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.log('Logging out...');
                     break;
             }
-            userDropdown.classList.remove('show');
+            userDropdown.classList.add('hidden'); // Fix: Hide dropdown after selection
         });
     });
 

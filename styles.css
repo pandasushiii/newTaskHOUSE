@@ -553,6 +553,10 @@ body {
     transform: translateY(0);
 }
 
+.user-dropdown.hidden {
+    display: none; /* Fix: Use 'hidden' class to control visibility */
+}
+
 .user-dropdown-item {
     display: flex;
     align-items: center;
