@@ -7,9 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdowns = document.querySelectorAll(".dropdown");
     const userProfileBtn = document.querySelector('.user-profile-btn');
     const userDropdown = document.querySelector('.user-dropdown');
-    const groupChatBtn = document.querySelector('.group-chat-btn');
-    const groupChatDropdown = document.querySelector('.group-chat-dropdown');
-    const groupChatMembers = document.querySelector('.group-chat-members');
+    const groupChatDropdown = document.getElementById('groupChatDropdown');
+    const groupChatMembersList = document.querySelector('.group-chat-members');
+    const members = [
+        { name: 'John Doe', status: 'online' },
+        { name: 'Jane Smith', status: 'offline' },
+        { name: 'Mike Johnson', status: 'break-time' },
+    ];
 
     // Handle sidebar toggle
     toggleBtn.addEventListener("click", function () {
@@ -36,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
             submenu.classList.toggle('hidden');
         });
 
-        submenu.addEventListener('click', (e) => e.stopPropagation()); // Prevent submenu closure
+        submenu.addEventListener('click', (e) => e.stopPropagation());
     });
 
     document.addEventListener("click", () => {
@@ -53,16 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!userDropdown.contains(e.target) && !userProfileBtn.contains(e.target)) {
             userDropdown.classList.remove('show');
         }
-    });
-
-    // Handle dropdown item clicks
-    document.querySelectorAll('.user-dropdown-item').forEach(item => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
-            const action = e.currentTarget.textContent.trim();
-            console.log(`${action} clicked`);
-            userDropdown.classList.remove('show');
-        });
     });
 
     // Handle modals
@@ -90,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setupModal('addTaskModal', '.add-task-card-btn');
     setupModal('attendance', '.clock-btn');
     setupModal('thirteenthMonthModal', '.thirteenth-month-btn');
+    setupModal('messagesModal', '.message-btn');
 
     // Handle Attendance Actions
     const clockInBtn = document.querySelector('.clock-in-btn');
@@ -151,79 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('addTaskModal').classList.remove('show');
     });
 
-    // Handle Group Chat Dropdown
-    groupChatBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        groupChatDropdown.classList.toggle('show');
-    });
-
-    document.addEventListener('click', () => {
-        groupChatDropdown.classList.remove('show');
-    });
-
-    // Dynamically populate members in the dropdown
-    const members = [
-        { name: 'John Doe', status: 'online' },
-        { name: 'Jane Smith', status: 'offline' },
-        { name: 'Mike Johnson', status: 'break-time' },
-    ];
-
-    members.forEach(member => {
-        const memberItem = document.createElement('li');
-        memberItem.innerHTML = `
-            <span>${member.name}</span>
-            <div class="member-status">
-                <span class="status-indicator ${member.status}"></span>
-            </div>
-        `;
-        groupChatMembers.appendChild(memberItem);
-    });
-
-    // Handle Messages Modal
-    setupModal('messagesModal', '.message-btn');
-
-    // Send message functionality
-    const messageInput = document.getElementById('messageInput');
-    const sendMessageBtn = document.getElementById('sendMessageBtn');
-    const messageTextContainer = document.querySelector('.message-text');
-
-    sendMessageBtn.addEventListener('click', () => {
-        const message = messageInput.value.trim();
-        if (message) {
-            // Add the user's message to the chat
-            const userMessage = document.createElement('div');
-            userMessage.classList.add('message', 'user-message');
-            userMessage.innerHTML = `<p><strong>You:</strong> ${message}</p>`;
-            messageTextContainer.appendChild(userMessage);
-
-            // Clear the input field
-            messageInput.value = '';
-
-            // Simulate a response from another member
-            setTimeout(() => {
-                const otherMessage = document.createElement('div');
-                otherMessage.classList.add('message', 'other-message');
-                otherMessage.innerHTML = `<p><strong>John Doe:</strong> Got it!</p>`;
-                messageTextContainer.appendChild(otherMessage);
-
-                // Scroll to the latest message
-                messageTextContainer.scrollTop = messageTextContainer.scrollHeight;
-            }, 1000);
-        }
-    });
-
-    // Handle "View Members" button in Messages Modal
-    const viewGroupChatMembersBtn = document.getElementById('viewGroupChatMembersBtn');
-    const groupChatDropdown = document.getElementById('groupChatDropdown');
-    const groupChatMembersList = document.querySelector('.group-chat-members');
-
-    // Dynamically populate members in the dropdown
-    const members = [
-        { name: 'John Doe', status: 'online' },
-        { name: 'Jane Smith', status: 'offline' },
-        { name: 'Mike Johnson', status: 'break-time' },
-    ];
-
+    // Populate Group Chat Members
     function populateGroupChatMembers() {
         groupChatMembersList.innerHTML = ''; // Clear existing members
         members.forEach(member => {
@@ -238,16 +161,42 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    const viewGroupChatMembersBtn = document.getElementById('viewGroupChatMembersBtn');
     viewGroupChatMembersBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         populateGroupChatMembers();
         groupChatDropdown.classList.toggle('show');
     });
 
-    // Ensure dropdown closes when clicking outside
     document.addEventListener('click', (e) => {
         if (!groupChatDropdown.contains(e.target) && !viewGroupChatMembersBtn.contains(e.target)) {
             groupChatDropdown.classList.remove('show');
+        }
+    });
+
+    // Send message functionality
+    const messageInput = document.getElementById('messageInput');
+    const sendMessageBtn = document.getElementById('sendMessageBtn');
+    const messageTextContainer = document.querySelector('.message-text');
+
+    sendMessageBtn.addEventListener('click', () => {
+        const message = messageInput.value.trim();
+        if (message) {
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'user-message');
+            userMessage.innerHTML = `<p><strong>You:</strong> ${message}</p>`;
+            messageTextContainer.appendChild(userMessage);
+
+            messageInput.value = '';
+
+            setTimeout(() => {
+                const otherMessage = document.createElement('div');
+                otherMessage.classList.add('message', 'other-message');
+                otherMessage.innerHTML = `<p><strong>John Doe:</strong> Got it!</p>`;
+                messageTextContainer.appendChild(otherMessage);
+
+                messageTextContainer.scrollTop = messageTextContainer.scrollHeight;
+            }, 1000);
         }
     });
 });
