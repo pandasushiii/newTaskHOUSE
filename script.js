@@ -179,12 +179,14 @@ document.addEventListener("DOMContentLoaded", function () {
         addTaskModal.classList.remove('show');
     });
 
-    // Handle Messages functionality
+    // Handle Messages modal
+    setupModal('messagesModal', '.message-btn');
+
+    // Send message functionality
     const messageInput = document.getElementById('messageInput');
     const sendMessageBtn = document.getElementById('sendMessageBtn');
     const messageTextContainer = document.querySelector('.message-text');
 
-    // Send message functionality
     sendMessageBtn.addEventListener('click', () => {
         const message = messageInput.value.trim();
         if (message) {
@@ -209,9 +211,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1000);
         }
     });
-
-    // Handle Group Chat Members modal
-    setupModal('groupChatModal', '.group-chat-btn');
 
     // Example: Dynamically add members to the chat members list
     const groupChatMembers = document.querySelector('.group-chat-members');
