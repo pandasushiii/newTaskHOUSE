@@ -2654,11 +2654,37 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%; /* Ensure it matches modal width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .messages-header h3 {
     margin: 0;
     font-size: 18px;
+    flex-grow: 1; /* Allow header text to take available space */
+}
+
+.messages-header .group-chat-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.messages-header .group-chat-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.messages-header .group-chat-icon {
+    width: 20px;
+    height: 20px;
 }
 
 .messages-header .close-modal {
@@ -2667,4 +2693,53 @@ body {
     color: white;
     font-size: 24px;
     cursor: pointer;
+}
+
+/* Adjust message input container */
+.message-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    position: sticky;
+    bottom: 0;
+    width: 100%; /* Ensure it matches modal width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.message-input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.message-input:focus {
+    border-color: #1d4e89;
+    outline: none;
+}
+
+.insert-file-btn,
+.send-message-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.insert-file-btn:hover,
+.send-message-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.insert-file-icon,
+.send-message-icon {
+    width: 24px;
+    height: 24px;
 }
