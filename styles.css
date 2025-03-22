@@ -2644,3 +2644,27 @@ body {
     padding-bottom: 10px;
     border-bottom: 2px solid #32a852; /* Keep original border color */
 }
+
+/* Consistent header styles for Messages and Group Chat Members modals */
+.messages-header {
+    background-color: #1d4e89; /* Match sidebar and other headers */
+    color: white;
+    padding: 15px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.messages-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.messages-header .close-modal {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}

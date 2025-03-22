@@ -182,6 +182,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Handle Messages modal
     setupModal('messagesModal', '.message-btn');
 
+    // Ensure closing Messages modal also closes Group Chat Members modal
+    const messagesModal = document.getElementById('messagesModal');
+    const groupChatModal = document.getElementById('groupChatModal');
+
+    messagesModal.querySelector('.close-modal').addEventListener('click', () => {
+        groupChatModal.classList.remove('show'); // Close Group Chat Members modal
+    });
+
     // Send message functionality
     const messageInput = document.getElementById('messageInput');
     const sendMessageBtn = document.getElementById('sendMessageBtn');
@@ -235,9 +243,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setupModal('groupChatModal', '.group-chat-btn');
 
     // Ensure Group Chat Members modal is in front of Messages modal
-    const groupChatModal = document.getElementById('groupChatModal');
-    const messagesModal = document.getElementById('messagesModal');
-
     document.querySelector('.group-chat-btn').addEventListener('click', () => {
         groupChatModal.style.zIndex = '1100'; // Bring Group Chat modal to the front
         messagesModal.style.zIndex = '1000'; // Push Messages modal to the back
