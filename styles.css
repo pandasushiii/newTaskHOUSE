@@ -2059,7 +2059,11 @@ body {
 
 .message.user-message {
     background-color: #d1e7dd;
-    align-self: flex-end; /* Adjusted to align right */
+    align-self: flex-end; /* Align message to the right */
+    text-align: right; /* Align text inside the message to the right */
+    margin-left: auto; /* Push the message to the right */
+    margin-right: 0; /* Remove any margin on the right */
+    border-radius: 12px 12px 0 12px; /* Adjust border radius for better appearance */
 }
 
 .message.other-message {
@@ -2254,7 +2258,11 @@ body {
 
 .message.user-message {
     background-color: #d1e7dd;
-    align-self: flex-end; /* Adjusted to align right */
+    align-self: flex-end; /* Align message to the right */
+    text-align: right; /* Align text inside the message to the right */
+    margin-left: auto; /* Push the message to the right */
+    margin-right: 0; /* Remove any margin on the right */
+    border-radius: 12px 12px 0 12px; /* Adjust border radius for better appearance */
 }
 
 .message.other-message {
