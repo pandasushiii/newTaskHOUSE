@@ -211,4 +211,16 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1000);
         }
     });
+
+    // Handle "View Members" button in Messages Modal
+    const viewGroupChatMembersBtn = document.getElementById('viewGroupChatMembersBtn');
+    viewGroupChatMembersBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        groupChatDropdown.classList.toggle('show');
+    });
+
+    // Ensure dropdown closes when clicking outside
+    document.addEventListener('click', () => {
+        groupChatDropdown.classList.remove('show');
+    });
 });
