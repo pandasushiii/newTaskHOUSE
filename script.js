@@ -38,6 +38,15 @@ document.addEventListener("DOMContentLoaded", function () {
         toggle.addEventListener('click', (e) => {
             e.stopPropagation();
             submenu.classList.toggle('hidden');
+
+            // Adjust submenu position for collapsed state
+            if (sidebar.classList.contains('collapsed')) {
+                submenu.style.left = `${toggle.offsetWidth}px`;
+                submenu.style.top = `${toggle.offsetTop}px`;
+            } else {
+                submenu.style.left = '';
+                submenu.style.top = '';
+            }
         });
 
         submenu.addEventListener('click', (e) => e.stopPropagation());
