@@ -2958,3 +2958,28 @@ body {
     width: 24px;
     height: 24px;
 }
+
+.sidebar.collapsed .menu > li {
+    justify-content: center; /* Center align items */
+    padding: 10px; /* Add padding for better spacing */
+    display: flex;
+    flex-direction: column; /* Stack icons and text vertically */
+    align-items: center; /* Center align items */
+    gap: 5px; /* Add spacing between icon and text */
+}
+
+.sidebar.collapsed .menu-icon {
+    width: 32px; /* Ensure icons are large enough */
+    height: 32px;
+    margin: 0 auto; /* Center the icon */
+    display: block; /* Ensure icons are always visible */
+}
+
+.sidebar.collapsed .menu-text {
+    font-size: 12px; /* Slightly larger font size for better readability */
+    text-align: center; /* Center align text */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    max-width: 50px; /* Limit text width */
+}
