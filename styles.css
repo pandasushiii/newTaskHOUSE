@@ -153,18 +153,22 @@ body {
 .menu > li {
     display: flex;
     align-items: center;
-    padding: 10px;
+    justify-content: flex-start;
     gap: 10px;
+    padding: 10px 15px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .menu-icon {
     width: 24px;
     height: 24px;
+    flex-shrink: 0;
 }
 
 .menu-text {
-    flex-grow: 1;
+    font-size: 14px;
+    color: white;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -194,9 +198,22 @@ body {
 }
 
 .submenu li {
-    padding: 8px 16px;
-    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 15px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submenu li .menu-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.submenu li .menu-text {
+    font-size: 13px;
+    color: white;
 }
 
 .submenu li:hover {
