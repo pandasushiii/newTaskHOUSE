@@ -152,12 +152,29 @@ body {
 
 /* Submenu styles */
 .submenu {
-    position: relative;
-    width: calc(100% - 16px);  /* Account for parent margins */
-    margin: 2px 8px;
-    background-color: rgba(29, 78, 137, 0.5);  /* Keep existing background */
-    border-radius: 8px;
-    overflow: hidden;
+    position: static; /* Remove absolute positioning */
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    background-color: rgba(29, 78, 137, 0.5); /* Keep existing background */
+    border-radius: 0; /* Remove border radius */
+    box-shadow: none; /* Remove shadow */
+    display: none; /* Initially hidden */
+}
+
+.dropdown:hover .submenu {
+    display: block; /* Show submenu on hover */
+}
+
+.submenu li {
+    padding: 8px 12px; /* Adjust padding for better alignment */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Add spacing between icon and text */
+    background-color: rgba(29, 78, 137, 0.5); /* Match submenu background */
+}
+
+.submenu li:hover {
+    background-color: #0a2847; /* Darker blue for hover effect */
 }
 
 .submenu.hidden {
