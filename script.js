@@ -37,14 +37,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         toggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            submenu.classList.toggle('hidden'); // Toggle visibility of the submenu
+            dropdowns.forEach(d => d.querySelector('.submenu').classList.add('hidden')); // Close other dropdowns
+            submenu.classList.toggle('hidden'); // Toggle current dropdown
         });
 
         submenu.addEventListener('click', (e) => e.stopPropagation()); // Prevent submenu clicks from closing it
     });
 
-    document.addEventListener("click", () => {
-        dropdowns.forEach(dropdown => dropdown.querySelector('.submenu').classList.add('hidden')); // Close all submenus on outside click
+    document.addEventListener('click', () => {
+        dropdowns.forEach(dropdown => dropdown.querySelector('.submenu').classList.add('hidden')); // Close all submenus
     });
 
     // Handle User Info dropdown toggle

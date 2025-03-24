@@ -152,36 +152,19 @@ body {
 
 /* Submenu styles */
 .submenu {
-    position: static; /* Remove absolute positioning */
-    margin: 0; /* Reset margin */
-    padding: 0; /* Reset padding */
-    background-color: rgba(29, 78, 137, 0.5); /* Keep existing background */
-    border-radius: 0; /* Remove border radius */
-    box-shadow: none; /* Remove shadow */
-    display: none; /* Initially hidden */
-}
-
-.dropdown:hover .submenu {
-    display: block; /* Show submenu on hover */
-}
-
-.submenu li {
-    padding: 8px 12px; /* Adjust padding for better alignment */
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Add spacing between icon and text */
-    background-color: rgba(29, 78, 137, 0.5); /* Match submenu background */
-}
-
-.submenu li:hover {
-    background-color: #0a2847; /* Darker blue for hover effect */
+    position: absolute;
+    top: 100%; /* Position below the parent */
+    left: 0;
+    background-color: #1d4e89;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+    z-index: 1000;
 }
 
 .submenu.hidden {
     display: none;
 }
-
-.submenu li {
     display: flex !important;
     align-items: center;
     padding: 8px 12px 8px 44px;  /* Indent submenu items */
