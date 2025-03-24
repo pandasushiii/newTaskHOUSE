@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Restore dropdown functionality for "Operation" and "Human Resources"
+    // Handle dropdown toggle
     dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
         const submenu = dropdown.querySelector('.submenu');
@@ -39,14 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
             e.stopPropagation();
             submenu.classList.toggle('hidden');
         });
-
-        document.addEventListener('click', () => {
-            submenu.classList.add('hidden');
-        });
     });
 
+    // Close all dropdowns when clicking outside
     document.addEventListener('click', () => {
-        dropdowns.forEach(dropdown => dropdown.querySelector('.submenu').classList.add('hidden')); // Close all submenus
+        dropdowns.forEach(dropdown => {
+            const submenu = dropdown.querySelector('.submenu');
+            submenu.classList.add('hidden');
+        });
     });
 
     // Handle User Info dropdown toggle

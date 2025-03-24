@@ -176,16 +176,54 @@ body {
 
 /* Submenu styles */
 .submenu {
-    position: absolute;
-    top: 100%; /* Position below the parent */
-    left: 0;
-    background-color: #1d4e89;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: none; /* Hidden by default */
-    z-index: 1000;
     flex-direction: column;
-    padding-left: 20px;
+    padding: 10px 0;
+    background-color: #1d4e89;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 0;
+    top: 100%; /* Position below the parent */
+    z-index: 1000;
+    width: 200px;
+}
+
+.submenu.hidden {
+    display: none; /* Ensure hidden class works */
+}
+
+.submenu li {
+    padding: 8px 16px;
+    color: white;
+    cursor: pointer;
+}
+
+.submenu li:hover {
+    background-color: #2a7a8c; /* Highlight on hover */
+}
+
+/* Ensure dropdown toggle arrow is styled */
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.arrow {
+    margin-left: auto;
+    font-size: 12px;
+    color: white;
+}
+
+/* Adjust submenu for collapsed sidebar */
+.sidebar.collapsed .submenu {
+    left: 60px; /* Adjust position for collapsed sidebar */
+    top: 0;
+    width: 200px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .submenu.hidden {
