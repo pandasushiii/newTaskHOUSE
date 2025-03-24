@@ -150,6 +150,30 @@ body {
     gap: 10px;
 }
 
+.menu > li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.menu-text {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar.collapsed .menu-text {
+    display: none;
+}
+
 /* Submenu styles */
 .submenu {
     position: absolute;
@@ -160,22 +184,33 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: none; /* Hidden by default */
     z-index: 1000;
+    flex-direction: column;
+    padding-left: 20px;
 }
 
 .submenu.hidden {
     display: none;
 }
-    display: flex !important;
-    align-items: center;
-    padding: 8px 12px 8px 44px;  /* Indent submenu items */
-    gap: 10px;
-    width: 100%;
-    justify-content: flex-start; /* Align dropdown items to the left */
-    padding: 8px 8px 8px 32px; /* Adjust padding for better alignment */
+
+.dropdown-toggle {
     display: flex;
-    flex-direction: row; /* Keep icons and text in a row */
-    align-items: center; /* Align items vertically */
-    gap: 8px; /* Add spacing between icon and text */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.arrow {
+    margin-left: auto;
+}
+
+.sidebar.collapsed .submenu {
+    position: absolute;
+    left: 60px;
+    top: 0;
+    background-color: #1d4e89;
+    width: 200px;
+    z-index: 1000;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .submenu li .menu-icon {
