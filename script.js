@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const mainContent = document.querySelector(".main-content");
     const contentDivs = document.querySelectorAll('.card');
     const menuItems = document.querySelectorAll("[data-content]");
-    const dropdowns = document.querySelectorAll(".dropdown"); // Keep only one declaration
+    const dropdowns = document.querySelectorAll(".dropdown"); // Dropdown elements
     const userProfileBtn = document.querySelector('.user-profile-btn');
     const userDropdown = document.querySelector('.user-dropdown');
     const groupChatDropdown = document.getElementById('groupChatDropdown');
@@ -30,30 +30,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Handle dropdowns
+    // Restore dropdown functionality
     dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
         const submenu = dropdown.querySelector('.submenu');
 
         toggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            submenu.classList.toggle('hidden');
-
-            // Adjust submenu position for collapsed state
-            if (sidebar.classList.contains('collapsed')) {
-                submenu.style.left = `${toggle.offsetWidth}px`;
-                submenu.style.top = `${toggle.offsetTop}px`;
-            } else {
-                submenu.style.left = '';
-                submenu.style.top = '';
-            }
+            submenu.classList.toggle('hidden'); // Toggle visibility of the submenu
         });
 
-        submenu.addEventListener('click', (e) => e.stopPropagation());
+        submenu.addEventListener('click', (e) => e.stopPropagation()); // Prevent submenu clicks from closing it
     });
 
     document.addEventListener("click", () => {
-        dropdowns.forEach(dropdown => dropdown.querySelector('.submenu').classList.add('hidden'));
+        dropdowns.forEach(dropdown => dropdown.querySelector('.submenu').classList.add('hidden')); // Close all submenus on outside click
     });
 
     // Handle User Info dropdown toggle
