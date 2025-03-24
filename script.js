@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const contentId = this.getAttribute("data-content");
             contentDivs.forEach(div => div.style.display = "none");
             document.getElementById(contentId).style.display = "block";
+
+            // Highlight active menu item
+            menuItems.forEach(menu => menu.classList.remove("active"));
+            this.classList.add("active");
         });
     });
 
@@ -38,6 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
         toggle.addEventListener('click', (e) => {
             e.stopPropagation();
             submenu.classList.toggle('hidden');
+
+            // Close other dropdowns
+            dropdowns.forEach(otherDropdown => {
+                if (otherDropdown !== dropdown) {
+                    otherDropdown.querySelector('.submenu').classList.add('hidden');
+                }
+            });
         });
     });
 
