@@ -170,6 +170,28 @@ body {
     padding: 8px 12px 8px 44px;  /* Indent submenu items */
     gap: 10px;
     width: 100%;
+    justify-content: flex-start; /* Align dropdown items to the left */
+    padding: 8px 8px 8px 32px; /* Adjust padding for better alignment */
+    display: flex;
+    flex-direction: row; /* Keep icons and text in a row */
+    align-items: center; /* Align items vertically */
+    gap: 8px; /* Add spacing between icon and text */
+}
+
+.submenu li .menu-icon {
+    width: 20px; /* Adjust icon size */
+    height: 20px;
+    flex-shrink: 0;
+    margin: 0; /* Remove centering margin */
+}
+
+.submenu li .menu-text {
+    font-size: 13px; /* Adjust font size for better readability */
+    text-align: left; /* Align text to the left */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    max-width: 130px; /* Limit text width */
 }
 
 /* Menu icon styles */
@@ -2986,11 +3008,11 @@ body {
 
 .menu > li {
     justify-content: flex-start; /* Align items to the left */
-    padding: 8px 12px; /* Adjust padding for better alignment */
+    padding: 8px 8px; /* Adjust padding for better alignment */
     display: flex;
     flex-direction: row; /* Keep icons and text in a row */
     align-items: center; /* Align items vertically */
-    gap: 10px; /* Add spacing between icon and text */
+    gap: 8px; /* Add spacing between icon and text */
 }
 
 .menu-icon {
@@ -3006,16 +3028,16 @@ body {
     white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden;
     text-overflow: ellipsis; /* Add ellipsis for long text */
-    max-width: 150px; /* Limit text width */
+    max-width: 140px; /* Limit text width */
 }
 
 .sidebar.collapsed .menu > li {
     justify-content: flex-start; /* Align items to the left */
-    padding: 8px 12px; /* Adjust padding for better alignment */
+    padding: 8px 8px; /* Adjust padding for better alignment */
     display: flex;
     flex-direction: row; /* Keep icons and text in a row */
     align-items: center; /* Align items vertically */
-    gap: 10px; /* Add spacing between icon and text */
+    gap: 8px; /* Add spacing between icon and text */
 }
 
 .sidebar.collapsed .menu-icon {
@@ -3030,5 +3052,5 @@ body {
     white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden;
     text-overflow: ellipsis; /* Add ellipsis for long text */
-    max-width: 150px; /* Limit text width */
+    max-width: 140px; /* Limit text width */
 }
