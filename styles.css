@@ -795,10 +795,10 @@ body {
 
 /* Update profile styles for collapsed state */
 .sidebar.collapsed .profile-container {
-    display: flex;
+    display: flex; /* Keep the profile container visible */
     flex-direction: column;
     align-items: center;
-    padding: 0 2px;
+    gap: 8px; /* Adjust spacing */
 }
 
 .sidebar.collapsed .profile p {
@@ -813,8 +813,8 @@ body {
 
 /* Adjust profile image size */
 .sidebar.collapsed .profile-icon {
-    width: 40px;  /* Adjusted size for better alignment */
-    height: 40px;
+    width: 48px; /* Adjust icon size for better visibility */
+    height: 48px;
 }
 
 .sidebar.collapsed .profile {
@@ -848,18 +848,13 @@ body {
 }
 
 .sidebar.collapsed .menu-icon {
-    width: 32px; /* Increased size for better visibility */
-    height: 32px;
+    width: 28px; /* Adjust icon size */
+    height: 28px;
     margin: 0 auto; /* Center the icon */
 }
 
 .sidebar.collapsed .menu-text {
-    font-size: 10px; /* Smaller font size for collapsed state */
-    text-align: center; /* Center align text */
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Add ellipsis for long text */
-    max-width: 40px; /* Limit text width */
+    display: none; /* Hide text in collapsed state */
 }
 
 /* Style for dropdown arrow */
