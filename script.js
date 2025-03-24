@@ -41,12 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         toggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            submenu.classList.toggle('hidden');
+            submenu.classList.toggle('show'); // Use 'show' class instead of 'hidden'
 
             // Close other dropdowns
             dropdowns.forEach(otherDropdown => {
                 if (otherDropdown !== dropdown) {
-                    otherDropdown.querySelector('.submenu').classList.add('hidden');
+                    otherDropdown.querySelector('.submenu').classList.remove('show');
                 }
             });
         });
