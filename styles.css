@@ -197,6 +197,10 @@ body {
     display: none; /* Ensure hidden class works */
 }
 
+.submenu.show {
+    display: flex; /* Show submenu when toggled */
+}
+
 .submenu li {
     display: flex;
     align-items: center;
