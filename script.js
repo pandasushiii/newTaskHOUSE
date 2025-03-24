@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Restore dropdown functionality
+    // Restore dropdown functionality for "Operation" and "Human Resources"
     dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
         const submenu = dropdown.querySelector('.submenu');
