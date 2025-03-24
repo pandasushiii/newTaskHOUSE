@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const mainContent = document.querySelector(".main-content");
     const contentDivs = document.querySelectorAll('.card');
     const menuItems = document.querySelectorAll("[data-content]");
-    const dropdowns = document.querySelectorAll(".dropdown");
+    const dropdowns = document.querySelectorAll(".dropdown"); // Keep only one declaration
     const userProfileBtn = document.querySelector('.user-profile-btn');
     const userDropdown = document.querySelector('.user-dropdown');
     const groupChatDropdown = document.getElementById('groupChatDropdown');
