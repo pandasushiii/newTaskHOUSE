@@ -106,8 +106,8 @@ body {
 }
 
 .profile-icon {
-    width: 64px;  /* Made larger */
-    height: 64px;  /* Made larger */
+    width: 80px;  /* Increased size */
+    height: 80px;  /* Increased size */
     border-radius: 50%;
     object-fit: cover;
 }
@@ -161,8 +161,8 @@ body {
 }
 
 .menu-icon {
-    width: 24px;
-    height: 24px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
     flex-shrink: 0;
 }
 
@@ -259,7 +259,7 @@ body {
 
 .arrow {
     margin-left: auto;
-    font-size: 12px;
+    font-size: 16px;  /* Slightly larger */
     color: white;
 }
 
@@ -315,8 +315,8 @@ body {
 
 /* Menu icon styles */
 .menu-icon {
-    width: 20px;
-    height: 20px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
     flex-shrink: 0;
     filter: brightness(0) invert(1);
 }
@@ -649,15 +649,15 @@ body {
 
 /* Update header icons size */
 .header-icon {
-    width: 24px; /* Adjusted size for better visibility */
-    height: 24px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
     filter: brightness(0) invert(1);
 }
 
 /* Update profile icon specifically */
 .user-profile-btn .profile-icon {
-    width: 28px; /* Match other header icons */
-    height: 28px; /* Match other header icons */
+    width: 64px; /* Reduced size */
+    height: 64px; /* Reduced size */
 }
 
 /* Update hover effect area */
@@ -719,8 +719,8 @@ body {
 }
 
 .dropdown-icon {
-    width: 16px;
-    height: 16px;
+    width: 24px;  /* Slightly larger */
+    height: 24px;  /* Slightly larger */
     flex-shrink: 0;
     transition: filter 0.2s ease;  /* Smooth transition for icon color */
 }
@@ -827,8 +827,8 @@ body {
 
 /* Update task icon color */
 .task-icon {
-    width: 16px;
-    height: 16px;
+    width: 24px;  /* Slightly larger */
+    height: 24px;  /* Slightly larger */
     filter: none;  /* Remove white filter since background is now white */
 }
 
@@ -865,8 +865,8 @@ body {
 
 /* Task icon styles */
 .task-icon {
-    width: 18px;
-    height: 18px;
+    width: 24px;  /* Slightly larger */
+    height: 24px;  /* Slightly larger */
     filter: none;  /* Remove white filter since button is now white */
 }
 
@@ -967,8 +967,8 @@ body {
 }
 
 .sidebar.collapsed .menu-icon {
-    width: 28px; /* Adjust icon size */
-    height: 28px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
     margin: 0 auto; /* Center the icon */
 }
 
@@ -979,7 +979,7 @@ body {
 /* Style for dropdown arrow */
 .arrow {
     margin-left: auto;
-    font-size: 12px;
+    font-size: 16px;  /* Slightly larger */
     opacity: 0.8;
 }
 
@@ -1209,8 +1209,8 @@ body {
 }
 
 .banner-image {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Maintain full width */
+    height: auto; /* Maintain aspect ratio */
     display: block;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1345,8 +1345,8 @@ body {
 }
 
 .feature-icon img {
-    width: 100%;
-    height: 100%;
+    width: 80px;  /* Increased size */
+    height: 80px;  /* Increased size */
     object-fit: contain;
 }
 
@@ -1431,7 +1431,7 @@ body {
 .company-logo {
     width: 100%;  /* Fill the container width */
     height: auto;  /* Maintain aspect ratio */
-    max-height: 50px;  /* Limit maximum height */
+    max-height: 60px;  /* Increased size */
     object-fit: contain;
     filter: brightness(0) invert(1);  /* Keep the logo white */
 }
@@ -1889,8 +1889,8 @@ body {
 }
 
 .status-indicator {
-    width: 10px;
-    height: 10px;
+    width: 12px;  /* Slightly larger */
+    height: 12px;  /* Slightly larger */
     border-radius: 50%;
     background-color: red; /* Default to red */
 }
@@ -1993,6 +1993,11 @@ body {
     font-weight: bold;
 }
 
+.schedule-table td img {
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
+}
+
 .edit-schedule-btn {
     background-color: #2a7a8c;
     color: white;
@@ -2052,6 +2057,11 @@ body {
     transition: background-color 0.2s;
 }
 
+.memo-title-btn img {
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
+}
+
 .memo-title-btn:hover {
     background-color: #236778;
 }
@@ -2084,6 +2094,11 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
+.payroll-table td img {
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
+}
+
 .payroll-table th {
     background-color: #f8f9fa;
     font-weight: bold;
@@ -2107,6 +2122,11 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
+.thirteenth-month-table td img {
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
+}
+
 .thirteenth-month-table th {
     background-color: #f8f9fa;
     font-weight: bold;
@@ -2128,6 +2148,11 @@ body {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+}
+
+.performance-table td img {
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
 }
 
 .performance-table th {
@@ -2168,8 +2193,8 @@ body {
 }
 
 .group-chat-icon {
-    width: 24px;
-    height: 24px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
 }
 
 .messages-content {
@@ -2243,8 +2268,8 @@ body {
 
 .insert-file-icon,
 .send-message-icon {
-    width: 24px;
-    height: 24px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
 }
 
 /* Group chat modal styles */
@@ -2321,8 +2346,8 @@ body {
 }
 
 .status-indicator {
-    width: 10px;
-    height: 10px;
+    width: 12px;  /* Slightly larger */
+    height: 12px;  /* Slightly larger */
     border-radius: 50%;
 }
 
@@ -2367,8 +2392,8 @@ body {
 }
 
 .group-chat-icon {
-    width: 24px;
-    height: 24px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
 }
 
 .messages-content {
@@ -2442,8 +2467,8 @@ body {
 
 .insert-file-icon,
 .send-message-icon {
-    width: 24px;
-    height: 24px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
 }
 
 /* Group chat modal styles */
@@ -2791,6 +2816,11 @@ body {
     border-bottom: 1px solid #eee;
 }
 
+.approval-tasks .task-table td img {
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
+}
+
 .approval-tasks .task-table th {
     background-color: #f8f9fa;
     font-weight: 600;
@@ -2860,8 +2890,8 @@ body {
 }
 
 .messages-header .group-chat-icon {
-    width: 20px;
-    height: 20px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
 }
 
 .messages-header .close-modal {
@@ -2917,8 +2947,8 @@ body {
 
 .insert-file-icon,
 .send-message-icon {
-    width: 24px;
-    height: 24px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
 }
 
 /* Group Chat Dropdown Styles */
@@ -2966,8 +2996,8 @@ body {
 }
 
 .status-indicator {
-    width: 10px;
-    height: 10px;
+    width: 12px;  /* Slightly larger */
+    height: 12px;  /* Slightly larger */
     border-radius: 50%;
 }
 
@@ -3091,8 +3121,8 @@ body {
 
 .insert-file-icon,
 .send-message-icon {
-    width: 24px;
-    height: 24px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
 }
 
 .sidebar.collapsed .menu > li {
@@ -3130,8 +3160,8 @@ body {
 }
 
 .menu-icon {
-    width: 24px; /* Adjust icon size */
-    height: 24px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
     flex-shrink: 0;
     margin: 0; /* Remove centering margin */
 }
@@ -3155,8 +3185,8 @@ body {
 }
 
 .sidebar.collapsed .menu-icon {
-    width: 24px; /* Adjust icon size */
-    height: 24px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
     margin: 0; /* Remove centering margin */
 }
 
@@ -3214,8 +3244,8 @@ body {
 
 /* Standardize icon size for navbar items */
 .header-controls img {
-    width: 24px;
-    height: 24px;
+    width: 32px;  /* Increased size */
+    height: 32px;  /* Increased size */
     filter: brightness(0) invert(1); /* Ensure consistent icon color */
 }
 
@@ -3246,4 +3276,143 @@ body {
     height: 100%;
     background: #32a852; /* Green color for progress */
     transition: width 0.3s ease; /* Smooth transition for progress updates */
+}
+
+/* General icon size adjustments */
+img {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+    object-fit: contain; /* Ensure proper scaling */
+}
+
+/* Specific adjustments for menu icons */
+.menu-icon {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust header icons */
+.header-icon {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust profile icon */
+.profile-icon {
+    width: 80px; /* Increased size */
+    height: 80px; /* Increased size */
+}
+
+/* Adjust dropdown icons */
+.dropdown-icon {
+    width: 24px; /* Slightly larger */
+    height: 24px; /* Slightly larger */
+}
+
+/* Adjust task icons */
+.task-icon {
+    width: 24px; /* Slightly larger */
+    height: 24px; /* Slightly larger */
+}
+
+/* Adjust group chat icons */
+.group-chat-icon {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust banner images */
+.banner-image {
+    width: 100%; /* Maintain full width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Adjust feature icons */
+.feature-icon img {
+    width: 80px; /* Increased size */
+    height: 80px; /* Increased size */
+}
+
+/* Adjust company logo */
+.company-logo {
+    max-height: 60px; /* Increased size */
+    width: auto; /* Maintain aspect ratio */
+}
+
+/* Adjust status indicators */
+.status-indicator {
+    width: 12px; /* Slightly larger */
+    height: 12px; /* Slightly larger */
+}
+
+/* Adjust message icons */
+.insert-file-icon,
+.send-message-icon {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust VA table icons */
+.va-table td img {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust memo icons */
+.memo-title-btn img {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust payroll table icons */
+.payroll-table td img {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust performance table icons */
+.performance-table td img {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust logs table icons */
+.logs-table td img {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust schedule table icons */
+.schedule-table td img {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust approval task table icons */
+.approval-tasks .task-table td img {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust thirteenth-month table icons */
+.thirteenth-month-table td img {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust message modal icons */
+.messages-modal-content img {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust group chat modal icons */
+.group-chat-modal-content img {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+}
+
+/* Adjust dropdown toggle arrow */
+.arrow {
+    font-size: 16px; /* Slightly larger */
 }
