@@ -56,22 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener('click', () => {
         dropdowns.forEach(dropdown => {
             const submenu = dropdown.querySelector('.submenu');
-            submenu.classList.add('hidden');
-        });
-    });
-
-    // Handle submenu extension on hover for "Operation" and "Human Resources"
-    dropdowns.forEach(dropdown => {
-        const submenu = dropdown.querySelector('.submenu');
-
-        dropdown.addEventListener('mouseenter', () => {
-            submenu.classList.remove('hidden');
-            submenu.classList.add('show');
-        });
-
-        dropdown.addEventListener('mouseleave', () => {
             submenu.classList.remove('show');
-            submenu.classList.add('hidden');
         });
     });
 
@@ -227,4 +212,16 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1000);
         }
     });
+
+    // Example: Update Task Completion Rate progress dynamically
+    function updateTaskCompletionRate(completedTasks, totalTasks) {
+        const progressBar = document.querySelector('.performance-card .progress');
+        if (progressBar) {
+            const completionRate = (completedTasks / totalTasks) * 100;
+            progressBar.style.width = `${completionRate}%`;
+        }
+    }
+
+    // Example usage
+    updateTaskCompletionRate(75, 100); // Set progress to 75%
 });
