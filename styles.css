@@ -187,10 +187,11 @@ body {
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: absolute;
-    left: 0;
-    top: 100%; /* Position below the parent */
+    left: 100%; /* Extend to the right of the parent */
+    top: 0; /* Align with the parent */
     z-index: 1000;
     width: 200px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .submenu.hidden {
@@ -198,7 +199,25 @@ body {
 }
 
 .submenu.show {
-    display: flex; /* Show submenu when toggled */
+    display: flex; /* Show submenu when hovered */
+}
+
+/* Ensure dropdown toggle arrow is styled */
+.dropdown {
+    position: relative;
+}
+
+.dropdown:hover .submenu {
+    display: flex; /* Show submenu on hover */
+}
+
+/* Adjust submenu for collapsed sidebar */
+.sidebar.collapsed .submenu {
+    left: 60px; /* Adjust position for collapsed sidebar */
+    top: 0;
+    width: 200px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .submenu li {

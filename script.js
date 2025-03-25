@@ -60,28 +60,17 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Handle dropdown toggle for "Operation" and "Human Resources"
+    // Handle submenu extension on hover for "Operation" and "Human Resources"
     dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
         const submenu = dropdown.querySelector('.submenu');
 
-        toggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            submenu.classList.toggle('hidden'); // Toggle visibility of the submenu
-
-            // Close other dropdowns
-            dropdowns.forEach(otherDropdown => {
-                if (otherDropdown !== dropdown) {
-                    otherDropdown.querySelector('.submenu').classList.add('hidden');
-                }
-            });
+        dropdown.addEventListener('mouseenter', () => {
+            submenu.classList.remove('hidden');
+            submenu.classList.add('show');
         });
-    });
 
-    // Close all dropdowns when clicking outside
-    document.addEventListener('click', () => {
-        dropdowns.forEach(dropdown => {
-            const submenu = dropdown.querySelector('.submenu');
+        dropdown.addEventListener('mouseleave', () => {
+            submenu.classList.remove('show');
             submenu.classList.add('hidden');
         });
     });
