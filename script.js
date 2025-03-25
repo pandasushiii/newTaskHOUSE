@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Handle User Info dropdown toggle
     userProfileBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        userDropdown.classList.toggle('show');
+        userDropdown.classList.toggle('hidden'); // Use 'hidden' class for consistency
     });
 
     document.addEventListener('click', (e) => {
         if (!userDropdown.contains(e.target) && !userProfileBtn.contains(e.target)) {
-            userDropdown.classList.remove('show');
+            userDropdown.classList.add('hidden'); // Ensure dropdown closes properly
         }
     });
 
